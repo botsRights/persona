@@ -37,7 +37,7 @@
 
         <!--name section-->
         <div class="name-section">
-            <input class="underline-long">
+            <input class="underline-long" name="attr_name">
             <!--<input class="underline-short">-->
             <!--<input class="underline-short">-->
             <!--<input class="underline-short">-->
@@ -46,10 +46,10 @@
 
         <!--details under name-->
         <div class="details-section">
-            <input class="underline-short">
-            <input class="underline-short">
-            <input class="underline-short">
-            <input class="underline-short">
+            <input class="underline-short" name="attr_lineOne">
+            <input class="underline-short" name="attr_lineTwo">
+            <input class="underline-short" name="attr_lineThree">
+            <input class="underline-short" name="attr_lineFour">
         </div>
 
         <!--square block-->
@@ -63,19 +63,24 @@
             <div class="blank-div"></div>
 
             <div class="stats-row">
-                Kindness <input class="stats">
+                Kindness <input type="text" class="stats" name="attr_kindness">
+                <button type='roll' name='roll_kindness' value='&{template:default} {{name=@{character_name}}} {{result=[[1d6 + @{kindness}}]]}}'/>
             </div>
             <div class="stats-row">
-                Guts <input class="stats">
+                Guts <input class="stats" type="text" name="attr_guts">
+                <button type='roll' name='roll_guts' value='&{template:default} {{name=@{character_name}}} {{result=[[1d6 + @{guts}}]]}}'/>
             </div>
             <div class="stats-row">
-                Charm <input class="stats">
+                Charm <input class="stats" type="text" name="attr_charm">
+                <button type='roll' name='roll_charm' value='&{template:default} {{name=@{character_name}}} {{result=[[1d6 + @{charm}}]]}}'/>
             </div>
             <div class="stats-row">
-                Proficiency <input class="stats">
+                Proficiency <input class="stats" type="text" name="attr_proficiency">
+                <button type='roll' name='roll_proficiency' value='&{template:default} {{name=@{character_name}}} {{result=[[1d6 + @{proficiency}}]]}}'/>
             </div>
             <div class="stats-row">
-                Knowledge <input class="stats">
+                Knowledge <input class="stats" type="text" name="attr_knowledge">
+                <button type='roll' name='roll_knowledge' value='&{template:default} {{name=@{character_name}}} {{result=[[1d6 + @{knowledge}}]]}}'/>
             </div>
         </div>
         <!--end of social stats section-->
@@ -84,13 +89,17 @@
         <div class="hit-points-section thick-borders">
             <p>Hit Points</p>
             <p>En = Damage Reduction</p>
+            <input type="text" name="attr_hitPoints">
         </div>
 
         <!--spirit points section-->
         <div class="spirit-points-section thick-borders">
             <p>Spirit Points</p>
-            <div class="spirit-bottom-box thin-borders"></div>
+            <input type="text" name="attr_spiritPoints"
+            <div class="spirit-bottom-box thin-borders">
+            </div>
             <div class="spirit-side-box thin-borders"></div>
+            
         </div>
 
 
@@ -141,16 +150,16 @@
                     <div class="confidants-item-container">
                         <p>The Magician</p>
                         <div class="confidants-checkboxes-container">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" name="attr_MagicianRankOne" value=1>
+                            <input type="checkbox" name="attr_MagicianRankTwo" value=1>
+                            <input type="checkbox" name="attr_MagicianRankThree" value=1>
+                            <input type="checkbox" name="attr_MagicianRankFour" value=1>
+                            <input type="checkbox" name="attr_MagicianRankFive" value=1>
+                            <input type="checkbox" name="attr_MagicianRankSix" value=1>
+                            <input type="checkbox" name="attr_MagicianRankSeven" value=1>
+                            <input type="checkbox" name="attr_MagicianRankEight" value=1>
+                            <input type="checkbox" name="attr_MagicianRankNine" value=1>
+                            <input type="checkbox" name="attr_MagicianRankTen" value=1>
                         </div>
                     </div>
                     <!--end of magician confidant container-->
@@ -158,16 +167,16 @@
                     <div class="confidants-item-container">
                         <p>The High Priestess</p>
                         <div class="confidants-checkboxes-container">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" name="attr_HighPriestessRankOne" value=1>
+                            <input type="checkbox" name="attr_HighPriestessRankTwo" value=1>
+                            <input type="checkbox" name="attr_HighPriestessRankThree" value=1>
+                            <input type="checkbox" name="attr_HighPriestessRankFour" value=1>
+                            <input type="checkbox" name="attr_HighPriestessRankFive" value=1>
+                            <input type="checkbox" name="attr_HighPriestessRankSix" value=1>
+                            <input type="checkbox" name="attr_HighPriestessRankSeven" value=1>
+                            <input type="checkbox" name="attr_HighPriestessRankEight" value=1>
+                            <input type="checkbox" name="attr_HighPriestessRankNine" value=1>
+                            <input type="checkbox" name="attr_HighPriestessRankTen" value=1>
                         </div>
                     </div>
                     <!--end of High Priestess confidant container-->
@@ -175,16 +184,16 @@
                     <div class="confidants-item-container">
                         <p>The Empress</p>
                         <div class="confidants-checkboxes-container">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" name="attr_EmpressRankOne" value=1>
+                            <input type="checkbox" name="attr_EmpressRankTwo" value=1>
+                            <input type="checkbox" name="attr_EmpressRankThree" value=1>
+                            <input type="checkbox" name="attr_EmpressRankFour" value=1>
+                            <input type="checkbox" name="attr_EmpressRankFive" value=1>
+                            <input type="checkbox" name="attr_EmpressRankSix" value=1>
+                            <input type="checkbox" name="attr_EmpressRankSeven" value=1> 
+                            <input type="checkbox" name="attr_EmpressRankEight" value=1>
+                            <input type="checkbox" name="attr_EmpressRankNine" value=1>
+                            <input type="checkbox" name="attr_EmpressRankTen" value=1>
                         </div>
                     </div>
                     <!--end of Empress confidant container-->
@@ -192,16 +201,16 @@
                     <div class="confidants-item-container">
                         <p>The Emperor</p>
                         <div class="confidants-checkboxes-container">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" name="attr_EmperorRankOne" value=1>
+                            <input type="checkbox" name="attr_EmperorRankTwo" value=1>
+                            <input type="checkbox" name="attr_EmperorRankThree" value=1>
+                            <input type="checkbox" name="attr_EmperorRankFour" value=1>
+                            <input type="checkbox" name="attr_EmperorRankFive" value=1>
+                            <input type="checkbox" name="attr_EmperorRankSix" value=1>
+                            <input type="checkbox" name="attr_EmperorRankSeven" value=1>
+                            <input type="checkbox" name="attr_EmperorRankEight" value=1>
+                            <input type="checkbox" name="attr_EmperorRankNine" value=1>
+                            <input type="checkbox" name="attr_EmperorRankTen" value=1>
                         </div>
                     </div>
                     <!--end of Emperor confidant container-->
@@ -209,16 +218,16 @@
                     <div class="confidants-item-container">
                         <p>The Hierophant</p>
                         <div class="confidants-checkboxes-container">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" name="attr_HierophantRankOne" value=1>
+                            <input type="checkbox" name="attr_HierophantRankTwo" value=1>
+                            <input type="checkbox" name="attr_HierophantRankThree" value=1>
+                            <input type="checkbox" name="attr_HierophantRankFour" value=1>
+                            <input type="checkbox" name="attr_HierophantRankFive" value=1>
+                            <input type="checkbox" name="attr_HierophantRankSix" value=1>
+                            <input type="checkbox" name="attr_HierophantRankSeven" value=1>
+                            <input type="checkbox" name="attr_HierophantRankEight" value=1>
+                            <input type="checkbox" name="attr_HierophantRankNine" value=1> 
+                            <input type="checkbox" name="attr_HierophantRankTen" value=1>
                         </div>
                     </div>
                     <!--end of Hierophant confidant container-->
@@ -226,16 +235,16 @@
                     <div class="confidants-item-container">
                         <p>The Lovers</p>
                         <div class="confidants-checkboxes-container">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" name="attr_LoversRankOne" value=1>
+                            <input type="checkbox" name="attr_LoversRankTwo" value=1>
+                            <input type="checkbox" name="attr_LoversRankThree" value=1>
+                            <input type="checkbox" name="attr_LoversRankFour" value=1>
+                            <input type="checkbox" name="attr_LoversRankFive" value=1>
+                            <input type="checkbox" name="attr_LoversRankSix" value=1>
+                            <input type="checkbox" name="attr_LoversRankSeven" value=1>
+                            <input type="checkbox" name="attr_LoversRankEight" value=1>
+                            <input type="checkbox" name="attr_LoversRankNine" value=1>
+                            <input type="checkbox"name="attr_LoversRankTen" value=1>
                         </div>
                     </div>
                     <!--end of Lovers confidant container-->
@@ -243,16 +252,16 @@
                     <div class="confidants-item-container">
                         <p>The Chariot</p>
                         <div class="confidants-checkboxes-container">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" name="attr_ChariotRankOne" value=1>
+                            <input type="checkbox" name="attr_ChariotRankTwo" value=1>
+                            <input type="checkbox" name="attr_ChariotRankThree" value=1>
+                            <input type="checkbox" name="attr_ChariotRankFour" value=1>
+                            <input type="checkbox" name="attr_ChariotRankFive" value=1>
+                            <input type="checkbox" name="attr_ChariotRankSix" value=1>
+                            <input type="checkbox" name="attr_ChariotRankSeven" value=1>
+                            <input type="checkbox" name="attr_ChariotRankEight" value=1>
+                            <input type="checkbox" name="attr_ChariotRankNine" value=1>
+                            <input type="checkbox" name="attr_ChariotRankTen" value=1>
                         </div>
                     </div>
                     <!--end of Chariot confidant container-->
@@ -260,16 +269,16 @@
                     <div class="confidants-item-container">
                         <p>Strength</p>
                         <div class="confidants-checkboxes-container">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" name="attr_StrengthRankOne" value=1>
+                            <input type="checkbox" name="attr_StrengthRankTwo" value=1>
+                            <input type="checkbox" name="attr_StrengthRankThree" value=1>
+                            <input type="checkbox" name="attr_StrengthRankFour" value=1>
+                            <input type="checkbox" name="attr_StrengthRankFive" value=1>
+                            <input type="checkbox" name="attr_StrengthRankSix" value=1>
+                            <input type="checkbox" name="attr_StrengthRankSeven" value=1>
+                            <input type="checkbox" name="attr_StrengthRankEight" value=1>
+                            <input type="checkbox" name="attr_StrengthRankNine" value=1>
+                            <input type="checkbox" name="attr_StrengthRankTen" value=1>
                         </div>
                     </div>
                     <!--end of Strength confidant container-->
@@ -277,16 +286,16 @@
                     <div class="confidants-item-container">
                         <p>The Hermit</p>
                         <div class="confidants-checkboxes-container">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" name="attr_HermitRankOne" value=1>
+                            <input type="checkbox" name="attr_HermitRankTwo" value=1>
+                            <input type="checkbox" name="attr_HermitRankThree" value=1>
+                            <input type="checkbox" name="attr_HermitRankFour" value=1>
+                            <input type="checkbox" name="attr_HermitRankFive" value=1>
+                            <input type="checkbox" name="attr_HermitRankSix" value=1>
+                            <input type="checkbox" name="attr_HermitRankSeven" value=1>
+                            <input type="checkbox" name="attr_HermitRankEight" value=1>
+                            <input type="checkbox" name="attr_HermitRankNine" value=1>
+                            <input type="checkbox" name="attr_HermitRanTen" value=1>
                         </div>
                     </div>
                     <!--end of Hermit confidant container-->
@@ -294,16 +303,16 @@
                     <div class="confidants-item-container">
                         <p>Wheel of Fortune</p>
                         <div class="confidants-checkboxes-container">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" name="attr_WheelOfFortuneRankOne" value=1>
+                            <input type="checkbox" name="attr_WheelOfFortuneRankTwo" value=1>
+                            <input type="checkbox" name="attr_WheelOfFortuneRankThree" value=1>
+                            <input type="checkbox" name="attr_WheelOfFortuneRankFour" value=1> 
+                            <input type="checkbox" name="attr_WheelOfFortuneRankFive" value=1>
+                            <input type="checkbox" name="attr_WheelOfFortuneRankSix" value=1>
+                            <input type="checkbox" name="attr_WheelOfFortuneRankSeven" value=1>
+                            <input type="checkbox" name="attr_WheelOfFortuneRankEight" value=1>
+                            <input type="checkbox" name="attr_WheelOfFortuneRankNine" value=1>
+                            <input type="checkbox" name="attr_WheelOfFortuneRankTen" value=1>
                         </div>
                     </div>
                     <!--end of Wheel of Fortune confidant container-->
@@ -311,16 +320,16 @@
                     <div class="confidants-item-container">
                         <p>Aeon</p>
                         <div class="confidants-checkboxes-container">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" name="attr_AeonRankOne" value=1>
+                            <input type="checkbox" name="attr_AeonRankTwo" value=1>
+                            <input type="checkbox" name="attr_AeonRankThree" value=1>
+                            <input type="checkbox" name="attr_AeonRankFour" value=1>
+                            <input type="checkbox" name="attr_AeonRankFive" value=1>
+                            <input type="checkbox" name="attr_AeonRankSix" value=1> 
+                            <input type="checkbox" name="attr_AeonRankSeven" value=1>
+                            <input type="checkbox" name="attr_AeonRankEight" value=1>
+                            <input type="checkbox" name="attr_AeonRankNine" value=1>
+                            <input type="checkbox" name="attr_AeonRankTen" value=1>
                         </div>
                     </div>
                     <!--end of Aeon confidant container-->
@@ -328,16 +337,16 @@
                     <div class="confidants-item-container">
                         <p>Temp One</p>
                         <div class="confidants-checkboxes-container">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" name="attr_TempOneRankOne" value=1>
+                            <input type="checkbox" name="attr_TempOneRankTwo" value=1>
+                            <input type="checkbox" name="attr_TempOneRankThree" value=1>
+                            <input type="checkbox" name="attr_TempOneRankFour" value=1>
+                            <input type="checkbox" name="attr_TempOneRankFive" value=1>
+                            <input type="checkbox" name="attr_TempOneRankSix" value=1>
+                            <input type="checkbox" name="attr_TempOneRankSeven" value=1>
+                            <input type="checkbox" name="attr_TempOneRankEight" value=1>
+                            <input type="checkbox" name="attr_TempOneRankNine" value=1>
+                            <input type="checkbox" name="attr_TempOneRankTen" value=1>
                         </div>
                     </div>
                     <!--end of Temp One confidant container-->
@@ -345,16 +354,16 @@
                     <div class="confidants-item-container">
                         <p>Temp Three</p>
                         <div class="confidants-checkboxes-container">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" name="attr_TempThreeRankOne" value=1>
+                            <input type="checkbox" name="attr_TempThreeRankTwo" value=1>
+                            <input type="checkbox" name="attr_TempThreeRankThree" value=1>
+                            <input type="checkbox" name="attr_TempThreeRankFour" value=1>
+                            <input type="checkbox" name="attr_TempThreeRankFive" value=1>
+                            <input type="checkbox" name="attr_TempThreeRankSix" value=1>
+                            <input type="checkbox" name="attr_TempThreeRankSeven" value=1>
+                            <input type="checkbox" name="attr_TempThreeRankEight" value=1>
+                            <input type="checkbox" name="attr_TempThreeRankNine" value=1>
+                            <input type="checkbox" name="attr_TempThreeRankTen" value=1>
                         </div>
                     </div>
                     <!--end of Temp Three confidant container-->
