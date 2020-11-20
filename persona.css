@@ -287,3 +287,28 @@ div{
     width: 48%;
 }
 /*end of bottom textareas section*/
+
+/*start of journal textarea section*/
+.attr_JournalBlock1{
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+/*end of journal textarea section*/
+
+
+/*Configure the tab buttons*/
+.sheet-character,
+.sheet-magic,
+.sheet-journal,
+.sheet-neuroweapon{
+	display: none;
+}
+
+/* show the selected tab */
+.sheet-tabstoggle[value="character"] ~ div.sheet-character,
+.sheet-tabstoggle[value="magic"] ~ div.sheet-magic,
+.sheet-tabstoggle[value="neuroweapon"] ~ div.sheet-neuroweapon,
+.sheet-tabstoggle[value="journal"] ~ div.sheet-journal {
+	display: block;
+}
