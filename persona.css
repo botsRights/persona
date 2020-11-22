@@ -75,6 +75,11 @@ div{
     margin-left:auto;
 }
 
+button[type=roll].sheet-d6-dice::before {
+	font-family: 'dicefontd6';
+	content: 'F ';
+}
+
 /*end of social stats section*/
 
 
