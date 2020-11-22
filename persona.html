@@ -40,6 +40,7 @@
 	<input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='character'  />
 
 	<div class='sheet-character'>
+	    
 		<div class="header-section">
 
         <!--logo section-->
@@ -76,23 +77,23 @@
 
             <div class="stats-row">
                 Kindness <input type="text" class="stats" name="attr_kindness">
-                <button type='roll' name='roll_kindness' value='&{template:default} {{name=@{character_name}}} {{result=[[1d6 + @{kindness}}]]}}'/>
+                <button type='roll' class="d6-dice" name='roll_kindness' value='&{template:default} {{name=@{character_name}}} {{Kindness (+@{kindness})}} {{result=[[1d6 + @{kindness}}]]}}'/>
             </div>
             <div class="stats-row">
                 Guts <input class="stats" type="text" name="attr_guts">
-                <button type='roll' name='roll_guts' value='&{template:default} {{name=@{character_name}}} {{result=[[1d6 + @{guts}}]]}}'/>
+                <button type='roll' class="d6-dice" name='roll_guts' value='&{template:default} {{name=@{character_name}}} {{Guts (+@{guts})}} {{result=[[1d6 + @{guts}}]]}}'/>
             </div>
             <div class="stats-row">
                 Charm <input class="stats" type="text" name="attr_charm">
-                <button type='roll' name='roll_charm' value='&{template:default} {{name=@{character_name}}} {{result=[[1d6 + @{charm}}]]}}'/>
+                <button type='roll' class="d6-dice" name='roll_charm' value='&{template:default} {{name=@{character_name}}} {{Charm (+@{charm})}} {{result=[[1d6 + @{charm}}]]}}'/>
             </div>
             <div class="stats-row">
                 Proficiency <input class="stats" type="text" name="attr_proficiency">
-                <button type='roll' name='roll_proficiency' value='&{template:default} {{name=@{character_name}}} {{result=[[1d6 + @{proficiency}}]]}}'/>
+                <button type='roll' class="d6-dice" name='roll_proficiency' value='&{template:default} {{name=@{character_name}}} {{Proficiency (+@{proficiency})}} {{result=[[1d6 + @{proficiency}}]]}}'/>
             </div>
             <div class="stats-row">
                 Knowledge <input class="stats" type="text" name="attr_knowledge">
-                <button type='roll' name='roll_knowledge' value='&{template:default} {{name=@{character_name}}} {{result=[[1d6 + @{knowledge}}]]}}'/>
+                <button type='roll'class="d6-dice" name='roll_knowledge' value='&{template:default} {{name=@{character_name}}} {{Knowledge (+@{knowledge})}} {{result=[[1d6 + @{knowledge}}]]}}'/>
             </div>
         </div>
         <!--end of social stats section-->
@@ -142,11 +143,11 @@
                         <div class="confidants-checkboxes-container">
                             <input type="checkbox" name="attr_MagicianRankOne" value=1>
                             <input type="checkbox" name="attr_MagicianRankTwo" value=1>
-                            <input type="checkbox" name="attr_MagicianRankThree" value=1>
+                            <input type="checkbox" name="attr_MagicianankThree" value=1>
                             <input type="checkbox" name="attr_MagicianRankFour" value=1>
                             <input type="checkbox" name="attr_MagicianRankFive" value=1>
                             <input type="checkbox" name="attr_MagicianRankSix" value=1>
-                            <input type="checkbox" name="attr_MagicianRankSeven" value=1>
+                            <input type="checkbox" name="attr_MagicianRankSeven" value=1> 
                             <input type="checkbox" name="attr_MagicianRankEight" value=1>
                             <input type="checkbox" name="attr_MagicianRankNine" value=1>
                             <input type="checkbox" name="attr_MagicianRankTen" value=1>
@@ -381,7 +382,7 @@
                     <!--end of Justice confidant container-->
                     <!--The Hanged Man confidant container-->
                     <div class="confidants-item-container">
-                        <p>The Hanged Man (Officer Nicks)</p>
+                        <p>The Hanged Man (Nicks)</p>
                         <div class="confidants-checkboxes-container">
                             <input type="checkbox" name="attr_HangedManRankOne" value=1>
                             <input type="checkbox" name="attr_HangedManRankTwo" value=1>
@@ -989,6 +990,7 @@
 	
 	<div class='sheet-journal'>
 		Journal/Notes Stuff Goes here 
+		<br/>
 		<textarea name="attr_JournalBlock1" class="thick-borders bottom-textarea" id="b7"></textarea>
     </div>
 	
