@@ -1,3 +1,16 @@
+.sheet-metaverse-stat-footer{
+	text-align: center;
+}
+
+.sheet-metaverse-stat-container th, td{
+	border:1px solid black;
+}
+
+.sheet-metaverse-stat-table table{
+	table-layout: fixed;
+	width: 100%;
+}
+
 div{
     border:1px solid black;
 }
@@ -63,7 +76,7 @@ div{
     font-size:20px;
 }
 
-.sheet-stats-row{
+.sheet-stats-row {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -134,7 +147,6 @@ button[type=roll].sheet-d6-dice::before {
 /*Start of confidants section*/
 
 .sheet-confidants-container{
-    width:60vw;
     grid-area: 1/1/2/2;
     margin-bottom: 5vh;
 }
