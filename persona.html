@@ -28,16 +28,15 @@
 
 <div class="main">
 
+	<input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='character'  />
 
-
-	<div>
+	<div class="sheet-tabs">
 		<button type="action" name="act_character" >Character</button>
 		<button type="action" name="act_magic" >Magic</button>
 		<button type="action" name="act_neuroweapon" >Neuroweapon</button>
         <button type="action" name="act_journal" >Journal</button>
 
 	</div>
-	<input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='character'  />
 
 	<div class='sheet-character'>
 		<div class="header-section">
@@ -76,23 +75,23 @@
 
             <div class="stats-row">
                 Kindness <input type="number" class="stats" name="attr_kindness">
-                <button type='roll' name='roll_kindness' value='&{template:default} {{name=@{character_name}}} {{result=[[1d6 + @{kindness}}]]}}'/>
+                <button type='roll' class="d6-dice" name='roll_kindness' value='&{template:default} {{name=@{character_name}}} {{Kindness (+@{kindness})}} {{result=[[1d6 + @{kindness}}]]}}'/>
             </div>
             <div class="stats-row">
                 Guts <input class="stats" type="number" name="attr_guts">
-                <button type='roll' name='roll_guts' value='&{template:default} {{name=@{character_name}}} {{result=[[1d6 + @{guts}}]]}}'/>
+                <button type='roll' class="d6-dice" name='roll_guts' value='&{template:default} {{name=@{character_name}}} {{Guts (+@{guts})}} {{result=[[1d6 + @{guts}}]]}}'/>
             </div>
             <div class="stats-row">
                 Charm <input class="stats" type="number" name="attr_charm">
-                <button type='roll' name='roll_charm' value='&{template:default} {{name=@{character_name}}} {{result=[[1d6 + @{charm}}]]}}'/>
+                <button type='roll' class="d6-dice" name='roll_charm' value='&{template:default} {{name=@{character_name}}} {{Charm (+@{charm})}} {{result=[[1d6 + @{charm}}]]}}'/>
             </div>
             <div class="stats-row">
                 Proficiency <input class="stats" type="number" name="attr_proficiency">
-                <button type='roll' name='roll_proficiency' value='&{template:default} {{name=@{character_name}}} {{result=[[1d6 + @{proficiency}}]]}}'/>
+                <button type='roll' class="d6-dice" name='roll_proficiency' value='&{template:default} {{name=@{character_name}}} {{Proficiency (+@{proficiency})}} {{result=[[1d6 + @{proficiency}}]]}}'/>
             </div>
             <div class="stats-row">
                 Knowledge <input class="stats" type="number" name="attr_knowledge">
-                <button type='roll' name='roll_knowledge' value='&{template:default} {{name=@{character_name}}} {{result=[[1d6 + @{knowledge}}]]}}'/>
+                <button type='roll'class="d6-dice" name='roll_knowledge' value='&{template:default} {{name=@{character_name}}} {{Knowledge (+@{knowledge})}} {{result=[[1d6 + @{knowledge}}]]}}'/>
             </div>
         </div>
         <!--end of social stats section-->
@@ -154,7 +153,7 @@
                     <!--end of magician confidant container-->
                     <!--High Priestess confidant container-->
                     <div class="confidants-item-container">
-                        <p>The High Priestess (Fatima)</p>
+                        <p>The High Priestess (???)</p>
                         <div class="confidants-checkboxes-container">
                             <input type="checkbox" name="attr_HighPriestessRankOne" value=1>
                             <input type="checkbox" name="attr_HighPriestessRankTwo" value=1>
@@ -380,7 +379,7 @@
                     <!--end of Justice confidant container-->
                     <!--The Hanged Man confidant container-->
                     <div class="confidants-item-container">
-                        <p>The Hanged Man (Officer Nicks)</p>
+                        <p>The Hanged Man (Nicks)</p>
                         <div class="confidants-checkboxes-container">
                             <input type="checkbox" name="attr_HangedManRankOne" value=1>
                             <input type="checkbox" name="attr_HangedManRankTwo" value=1>
@@ -753,71 +752,154 @@
                 <!-- end two blank rows -->
                 
                 <!-- start affinity bottom container -->
-                <div class="affinity-bottom-container">
-                    <!-- start affinity bottom row 1 -->
-                    <div class="affinity-bottom-row">
-                        <p class="affinity-bottom-numbers">+5</p>
-                        <p class="affinity-bottom-numbers">+6</p>
-                        <p class="affinity-bottom-numbers">-5</p>
-                        <p class="affinity-bottom-numbers">+5</p>
-                        <p class="affinity-bottom-numbers">5</p>
-                    </div>
-                    <!-- end affinity bottom row 1-->
-                    <!-- start affinity bottom row 2-->
-                    <div class="affinity-bottom-row">
-                        <p class="affinity-bottom-numbers">+4</p>
-                        <p class="affinity-bottom-numbers">+5</p>
-                        <p class="affinity-bottom-numbers">-4</p>
-                        <p class="affinity-bottom-numbers">+4</p>
-                        <p class="affinity-bottom-numbers">6</p>
-                    </div>
-                    <!-- end affinity bottom row 2-->
-                    <!-- start affinity bottom row 3-->
-                    <div class="affinity-bottom-row">
-                        <p class="affinity-bottom-numbers">+3</p>
-                        <p class="affinity-bottom-numbers">+4</p>
-                        <p class="affinity-bottom-numbers">-3</p>
-                        <p class="affinity-bottom-numbers">+3</p>
-                        <p class="affinity-bottom-numbers">6</p>
-                    </div>
-                    <!-- end affinity bottom row 3-->
-                    <!-- start affinity bottom row 4-->
-                    <div class="affinity-bottom-row">
-                        <p class="affinity-bottom-numbers">+2</p>
-                        <p class="affinity-bottom-numbers">+3</p>
-                        <p class="affinity-bottom-numbers">-2</p>
-                        <p class="affinity-bottom-numbers">+2</p>
-                        <p class="affinity-bottom-numbers">7</p>
-                    </div>
-                    <!-- end affinity bottom row 4-->
-                    <!-- start affinity bottom row 5-->
-                    <div class="affinity-bottom-row">
-                        <p class="affinity-bottom-numbers">+1</p>
-                        <p class="affinity-bottom-numbers">+2</p>
-                        <p class="affinity-bottom-numbers">-1</p>
-                        <p class="affinity-bottom-numbers">+1</p>
-                        <p class="affinity-bottom-numbers">7</p>
-                    </div>
-                    <!-- end affinity bottom row 5-->
-                    <!-- start affinity footer row -->
-                    <div class="affinity-footer-row">
-                        <p class="affinity-footer-text">ST</p>
-                        <p class="affinity-footer-text">MA</p>
-                        <p class="affinity-footer-text">EN</p>
-                        <p class="affinity-footer-text">AG</p>
-                        <p class="affinity-footer-text">LU</p>
-                    </div>
-                    <!-- end affinity footer row -->
-                </div>
-                <!-- end affinity bottom container -->
-            </div>
+                <div class="affinity-metaverse-stats">
+					<input type="text" name="attr_strength" value="0" />
+					<input type="text" name="attr_magic" value="0" />
+					<input type="text" name="attr_endurance" value="0" />
+					<input type="text" name="attr_agility" value="0" />
+					<input type="text" name="attr_luck" value="0" />
+
+
+					<table>
+						<tr>
+							<td>
+								<input type="radio" name="attr_strength_button" data-col="1" value=5>
+								<label for="attr_strength_button">+5</label>
+							</td>
+							<td>
+								<input type="radio" name="attr_magic_button" data-col="2" value=6>
+								<label for="attr_magic_button">+6</label>
+							</td>
+							<td>
+								<input type="radio" name="attr_endurance_button" data-col="3" value=-5>
+								<label for="attr_endurance_button">-5</label>
+							</td>
+							<td>
+								<input type="radio" name="attr_agility_button" data-col="4" value=5>
+								<label for="attr_agility_button">+5</label>
+							</td>
+							<td>
+								<input type="radio" name="attr_luck_button" data-col="5" value=5>
+								<label for="attr_luck_button">4/5&amp;6</label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="radio" name="attr_strength_button" data-col="1" value=4>
+								<label for="attr_strength_button">+4</label>
+							</td>
+							<td>
+								<input type="radio" name="attr_magic_button" data-col="2" value=5>
+								<label for="attr_magic_button">+5</label>
+							</td>
+							<td>
+								<input type="radio" name="attr_endurance_button" data-col="3" value=-4>
+								<label for="attr_endurance_button">-4</label>
+							</td>
+							<td>
+								<input type="radio" name="attr_agility_button" data-col="4" value=4>
+								<label for="attr_agility_button">+4</label>
+							</td>
+							<td>
+								<input type="radio" name="attr_luck_button" data-col="5" value=4>
+								<label for="attr_luck_button">4&amp;5/6</label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="radio" name="attr_strength_button" data-col="1" value=3>
+								<label for="attr_strength_button">+3</label>
+							</td>
+							<td>
+								<input type="radio" name="attr_magic_button" data-col="2" value=4>
+								<label for="attr_magic_button">+4</label>
+							</td>
+							<td>
+								<input type="radio" name="attr_endurance_button" data-col="3" value=-3>
+								<label for="attr_endurance_button">-3</label>
+							</td>
+							<td>
+								<input type="radio" name="attr_agility_button" data-col="4" value=3>
+								<label for="attr_agility_button">+3</label>
+							</td>
+							<td>
+								<input type="radio" name="attr_luck_button" data-col="5" value=3>
+								<label for="attr_luck_button">5/6</label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="radio" name="attr_strength_button" data-col="1" value=2>
+								<label for="attr_strength_button">+2</label>
+							</td>
+							<td>
+								<input type="radio" name="attr_magic_button" data-col="2" value=3>
+								<label for="attr_magic_button">+3</label>
+							</td>
+							<td>
+								<input type="radio" name="attr_endurance_button" data-col="3" value=-2>
+								<label for="attr_endurance_button">-2</label>
+							</td>
+							<td>
+								<input type="radio" name="attr_agility_button" data-col="4" value=2>
+								<label for="attr_agility_button">+2</label>
+							</td>
+							<td>
+								<input type="radio" name="attr_luck_button" data-col="5" value=2>
+								<label for="attr_luck_button">5/6</label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="radio" name="attr_strength_button" data-col="1" value=1/>
+								<label for="attr_strength_button">+1</label>
+							</td>
+							<td>
+								<input type="radio" name="attr_magic_button" data-col="2" value=2/>
+								<label for="attr_magic_button">+2</label>
+							</td>
+							<td>
+								<input type="radio" name="attr_endurance_button" data-col="3" value=-1/>
+								<label for="attr_endurance_button">-1</label>
+							</td>
+							<td>
+								<input type="radio" name="attr_agility_button" data-col="4" value=1/>
+								<label for="attr_agility_button">+1</label>
+							</td>
+							<td>
+								<input type="radio" name="attr_luck_button" data-col="5" value=1/>
+								<label for="attr_luck_button">6</label>
+							</td>
+						</tr>
+						<tr>
+							<th>ST</th>
+							<th>MA</th>
+							<th>EN</th>
+							<th>AG</th>
+							<th>LU</th>
+						</tr>
+						<tr>
+							<th>
+								<button type='roll' class="d6-dice" name='roll_st' value='&{template:default} {{name=@{character_name}}} {{Strength (+@{strength})}} {{result=[[1d6 + @{strength}}]]}}'/>
+							</th>
+							<th>
+								<button type='roll' class="d6-dice" name='roll_ma' value='&{template:default} {{name=@{character_name}}} {{Magic (+@{magic})}} {{result=[[1d6 + @{magic}}]]}}'/>
+							</th>
+							<th></th>
+							<th>
+								<button type='roll' class="d6-dice" name='roll_ag' value='&{template:default} {{name=@{character_name}}} {{Agility (+@{agility})}} {{result=[[1d6 + @{agility}}]]}}'/>
+							</th>
+							<th></th>
+						</tr>
+					</table>
+				</div>
             <!-- end affinity profile body -->
         </div>
         <!-- end of afinity profile section -->
     </div>
 		<!-- end of body top -->
 	</div>
-
+	</div>
     
     
     <div class='sheet-magic'>
@@ -976,6 +1058,7 @@
 	
 	<div class='sheet-journal'>
 		Journal/Notes Stuff Goes here 
+		<br/>
 		<textarea name="attr_JournalBlock1" class="thick-borders bottom-textarea" id="b7"></textarea>
     </div>
 	
@@ -1011,6 +1094,8 @@
 			});
 		});
 	});
+	
+	
 	</script>
 
 
