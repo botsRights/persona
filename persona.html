@@ -31,11 +31,11 @@
 	<input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='character'  />
 
 	<div class="sheet-tabs">
-		<button type="action" name="act_character" >Character</button>
-		<button type="action" name="act_magic" >Magic</button>
-		<button type="action" name="act_neuroweapon" >Neuroweapon</button>
+		<button type="action" name="act_character">Character</button>
+		<button type="action" name="act_magic">Magic</button>
+		<button type="action" name="act_abilities">Abilities</button>
+		<button type="action" name="act_neuroweapon">Neuroweapon</button>
         <button type="action" name="act_journal" >Journal</button>
-
 	</div>
 
 	<div class='sheet-character'>
@@ -100,7 +100,8 @@
         <div class="hit-points-section thick-borders">
             <p>Hit Points</p>
             <p>En = Damage Reduction</p>
-            <input type="number" name="attr_hitPoints">
+            Current:<input type="number" name="attr_hp">
+			&emsp;Max:<input type="number" name="attr_hp_max">
         </div>
 
         <!--spirit points section-->
@@ -630,7 +631,7 @@
             <!-- start affinity profile header -->
             <div class="affinity-logo">
                 <img
-                    src="https://webdevmango.com/wp-content/uploads/2020/11/output-onlinepngtools1-e1604299494643.png" />
+                    src="https://raw.githubusercontent.com/botsRights/persona/main/personaAffinity.PNG" />
             </div>
             <p>Elemental Affinity Profile</p>
             <div class="affinity-header-lables">
@@ -753,11 +754,11 @@
                 
                 <!-- start affinity bottom container -->
                 <div class="affinity-metaverse-stats">
-					<input type="text" name="attr_strength" value="0" />
-					<input type="text" name="attr_magic" value="0" />
-					<input type="text" name="attr_endurance" value="0" />
-					<input type="text" name="attr_agility" value="0" />
-					<input type="text" name="attr_luck" value="0" />
+					<input type="hidden" name="attr_strength" value="0" />
+					<input type="hidden" name="attr_magic" value="0" />
+					<input type="hidden" name="attr_endurance" value="0" />
+					<input type="hidden" name="attr_agility" value="0" />
+					<input type="hidden" name="attr_luck" value="0" />
 
 
 					<table>
@@ -1044,38 +1045,69 @@
     </div>
 		<!-- end of info section  -->
 		<div class="big-six-blocks-container">
-        <textarea name="attr_SpellBlock1" class="thick-borders bottom-textarea" id="b1"></textarea>
-        <textarea name="attr_SpellBlock2" class="thick-borders bottom-textarea" id="b2"></textarea>
-        <textarea name="attr_SpellBlock3" class="thick-borders bottom-textarea" id="b3"></textarea>
-        <textarea name="attr_SpellBlock4" class="thick-borders bottom-textarea" id="b4"></textarea>
-        <textarea name="attr_SpellBlock5" class="thick-borders bottom-textarea" id="b5"></textarea>
-        <textarea name="attr_SpellBlock6" class="thick-borders bottom-textarea" id="b6"></textarea>
+        <textarea name="attr_SpellBlock1" class="thick-borders bottom-textarea""></textarea>
+        <textarea name="attr_SpellBlock2" class="thick-borders bottom-textarea"></textarea>
+        <textarea name="attr_SpellBlock3" class="thick-borders bottom-textarea"></textarea>
+        <textarea name="attr_SpellBlock4" class="thick-borders bottom-textarea"></textarea>
+        <textarea name="attr_SpellBlock5" class="thick-borders bottom-textarea"></textarea>
+        <textarea name="attr_SpellBlock6" class="thick-borders bottom-textarea"></textarea>
     </div>
 
 	</div>
 
-
+	<div class='sheet-abilities'>
+		<div class="logo-section">
+            <img src="https://raw.githubusercontent.com/botsRights/persona/main/abiltiesHeader.png" />
+        </div>
+		<fieldset class="repeating_abilties"> 
+			Name: <input type="text" name="attr_ability_name" />
+			Relationship: <select name="attr_ability_source" class="abilitySource"> 
+				<option value="Annabella (Hunger)">Annabella (Hunger)</option>
+				<option value="T.K. (The Magician)">T.K. (The Magician)</option>
+				<option value="??? (The High Priestess)">??? (The High Priestess)</option>
+				<option value="Leah (The Empress)">Leah (The Empress)</option>
+				<option value="Spencer (The Emperor)">Spencer (The Emperor)</option>
+				<option value="Makoto (The Hierophant)">Makoto (The Hierophant)</option>
+				<option value="Kenzi (The Lovers)">Kenzi (The Lovers)</option>
+				<option value="??? (The Chariot)">??? (The Chariot)</option>
+				<option value="Giovanni (Justice)">Giovanni (Justice)</option>
+				<option value="Charlie (The Hermit)">Charlie (The Hermit)</option>
+				<option value="??? (The Wheel of Fortune)">??? (The Wheel of Fortune)</option>
+				<option value="Lavenza (Strength)">Lavenza (Strength)</option>
+				<option value="Officer Nicks (The Hanged Man)">Officer Nicks (The Hanged Man)</option>
+				<option value="Roxie (Death)">Roxie (Death)</option>
+				<option value="Mia (Temperance)">Mia (Temperance)</option>
+				<option value="??? (The Devil)">??? (The Devil)</option>
+				<option value="??? (The Tower)">??? (The Tower)</option>
+				<option value="Darius (The Star)">Darius (The Star</option>
+				<option value="Haley (The Moon)">Haley (The Moon</option>
+				<option value="Lukas (The Sun)">Lukas (The Sun)</option>
+				<option value="Raven (Judgement)">Raven (Judgement)</option>
+				<option value="Wren (Aeon)">Wren (Aeon)</option>
+			</select>
+			Used?: <input type="checkbox" name="attr_ability_used" value=1>
+			Description: <textarea name="attr_ability_description" class="thick-borders bottom-textarea" ></textarea>
+		</fieldset>
+	</div>
 	
 	<div class='sheet-journal'>
 		Journal/Notes Stuff Goes here 
 		<br/>
-		<textarea name="attr_JournalBlock1" class="thick-borders bottom-textarea" id="b7"></textarea>
-    </div>
-	
-	
+		<textarea name="attr_JournalBlock1" class="thick-borders bottom-textarea"></textarea>
+    </div>		
 	
 	<div class="sheet-neuroweapon">
 	    <div class="stats-row">
-                Neuroweapon Name <input type="text" class="stats" name="attr_NeuroweaponName">
-            </div>
+			Neuroweapon Name <input type="text" class="stats" name="attr_NeuroweaponName">
+        </div>
 	    
 		<div class="big-six-blocks-container">
-        <textarea name="attr_NeuroweaponBlock1" class="thick-borders bottom-textarea" id="nb1"></textarea>
-        <textarea name="attr_NeuroweaponBlock2" class="thick-borders bottom-textarea" id="nb2"></textarea>
-        <textarea name="attr_NeuroweaponBlock3" class="thick-borders bottom-textarea" id="nb3"></textarea>
-        <textarea name="attr_NeuroweaponBlock4" class="thick-borders bottom-textarea" id="nb4"></textarea>
-        <textarea name="attr_NeuroweaponBlock5" class="thick-borders bottom-textarea" id="nb5"></textarea>
-        <textarea name="attr_NeuroweaponBlock6" class="thick-borders bottom-textarea" id="nb6"></textarea>
+        <textarea name="attr_NeuroweaponBlock1" class="thick-borders bottom-textarea" ></textarea>
+        <textarea name="attr_NeuroweaponBlock2" class="thick-borders bottom-textarea" ></textarea>
+        <textarea name="attr_NeuroweaponBlock3" class="thick-borders bottom-textarea" ></textarea>
+        <textarea name="attr_NeuroweaponBlock4" class="thick-borders bottom-textarea" ></textarea>
+        <textarea name="attr_NeuroweaponBlock5" class="thick-borders bottom-textarea" ></textarea>
+        <textarea name="attr_NeuroweaponBlock6" class="thick-borders bottom-textarea" ></textarea>
     </div>
 	
 	</div>
@@ -1086,7 +1118,7 @@
 
 
 	<script type="text/worker">
-	const buttonlist = ["character","journal","magic", "neuroweapon"];
+	const buttonlist = ["character","journal","magic", "neuroweapon", "abilities"];
 	buttonlist.forEach(button => {
 		on(`clicked:${button}`, function() {
 			setAttrs({
@@ -1094,7 +1126,6 @@
 			});
 		});
 	});
-	
 	
 	</script>
 
