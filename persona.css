@@ -2,6 +2,9 @@ div{
     border:1px solid black;
 }
 
+input[type="number"] {
+    width: 4em;
+}
 
 .sheet-thick-borders{
     border:3px solid black;
@@ -312,7 +315,7 @@ button[type=roll].sheet-d6-dice::before {
 }
 
 .sheet-affinity-metaverse-stats table{
-	table-layout:fixed;
+	table-layout:auto;
 }
 /* end of body top section  */
 
@@ -369,6 +372,7 @@ button[type=roll].sheet-d6-dice::before {
 /*Configure the tab buttons*/
 .sheet-character,
 .sheet-magic,
+.sheet-abilities,
 .sheet-journal,
 .sheet-neuroweapon{
 	display: none;
@@ -377,6 +381,7 @@ button[type=roll].sheet-d6-dice::before {
 /* show the selected tab */
 .sheet-tabstoggle[value="character"] ~ div.sheet-character,
 .sheet-tabstoggle[value="magic"] ~ div.sheet-magic,
+.sheet-tabstoggle[value="abilities"] ~ div.sheet-abilities,
 .sheet-tabstoggle[value="neuroweapon"] ~ div.sheet-neuroweapon,
 .sheet-tabstoggle[value="journal"] ~ div.sheet-journal {
 	display: block;
