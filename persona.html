@@ -108,7 +108,8 @@
         <div class="spirit-points-section thick-borders">
 			<p class="spiritPointsLabel">Spirit Points</p>
             <div class="spirit-bottom-box thin-borders">
-                <input type="number" name="attr_spiritPoints">
+                Current:<input type="number" name="attr_sp">
+				&emsp;Max:<input type="number" name="attr_sp_max">
             </div>
 			<p class="bondLevelsLabel"> Bond Levels</p>
             <div class="spirit-side-box thin-borders">    	
@@ -239,7 +240,7 @@
                     <!--end of Lovers confidant container-->
                     <!--Chariot confidant container-->
                     <div class="confidants-item-container">
-                        <p>The Chariot (Alessio)</p>
+                        <p>The Chariot (???)</p>
                         <div class="confidants-checkboxes-container">
                             <input type="checkbox" name="attr_ChariotRankOne" value=1>
                             <input type="checkbox" name="attr_ChariotRankTwo" value=1>
@@ -909,150 +910,224 @@
         
 
     <!-- start basic magic attack section -->
-    <div class="basic-magic-attacks-section thick-borders">
-        
-        <!-- start basic magic attacks header -->
-        <p class="magic-info-headers">Basic Magic Attacks:</p>
-        <!-- end basic magic attacks header -->
-        
-        <!-- start basic magic attacks body 1 -->
-        <div class="basic-magic-attack-body">
-            <p>Elemental Spell (1 Target): 1SP</p>
-            <ul>
-                <li>to hit: d6 + MA</li>
-                <li>damage: (x)d6 + MA</li>
-            </ul>
-        </div>
-        <!-- end basic magic attacks body 1 -->
-        
-        <!-- start basic magic attacks body 2 -->
-        <div class="basic-magic-attack-body">
-            <p>Elemental Spell (Multiple Targets): 2SP / target</p>
-            <ul>
-                <li>to hit: d6 + MA</li>
-                <li>damage: (x)d6 + MA</li>
-            </ul>
-        </div>
-        <!-- end basic magic attacks body 2 -->
-        
-        <!-- start basic magic attacks body 3 -->
-        <div class="basic-magic-attack-body">
-            <p>(X = Spell Dice!)</p>
-        </div>
-        <!-- end basic magic attacks body 3 -->
-    </div>
-    <!-- end basic magic attack section -->
-    
-    <!-- start basic non magic attack section -->
-    <div class="basic-non-magic-attacks-section thick-borders">
-        <!-- start basic non magic attacks header -->
-        <p class="magic-info-headers">Basic Non-Magic Attacks:</p>
-        <!-- end basic non magic attacks header -->
-        
-        <!-- start basic non magic attacks body 1 -->
-        <div class="basic-non-magic-attack-body">
-            <p>Gun Attack: 1 ammo</p>
-            <ul>
-                <li>to hit: d6 + (WB)</li>
-                <li>damage: (W)</li>
-            </ul>
-        </div>
-        <!-- end basic non magic attacks body 1 -->
-        
-        <!-- start basic non magic attacks body 2 -->
-        <div class="basic-non-magic-attack-body">
-            <p>Melee Attack:</p>
-            <ul>
-                <li>to hit: d6 + (WB)</li>
-                <li>damage: (W) + ST</li>
-            </ul>
-        </div>
-        <!-- end basic non magic attacks body 2 -->
-        
-        <!-- start basic non magic attacks body 3 -->
-        <div class="basic-non-magic-attack-body">
-            <p>(WB = Weapon Bonus)</p>
-            <p>(W = Weapon Damage Dice)</p>
-        </div>
-        <!-- end basic non magic attacks body 3 -->
-    </div>
-    <!-- end basic non magic attack section -->
-    
-    <!-- start buff / debuff magic section -->
-    <div class="buff-debuff-magic-section thick-borders">
-        <!-- start buff / debuff magic header -->
-        <p class="magic-info-headers">Buff / Debuff Magic:</p>
-        <!-- end buff / debuff magic header -->
-        
-        <!-- start buff / debuff magic body 1 -->
-        <div class="buff-debuff-body">
-            <p>Buff / Healing Spell: (X)SP</p>
-            <ul>
-                <li>automatically hits</li>
-                <li>refer to spell details for effects</li>
-            </ul>
-        </div>
-        <!-- end buff / debuff magic body 1 -->
-        
-        <!-- start buff / debuff magic body 2 -->
-        <div class="buff-debuff-body">
-            <p>Debuff Spell: (X)SP</p>
-            <ul>
-                <li>d6 + MA</li>
-                <li>refer to spell details for effects</li>
-            </ul>
-        </div>
-        <!-- end buff / debuff magic body 2 -->
-        
-        <!-- start buff / debuff magic body 3 -->
-        <div class="buff-debuff-body">
-            <p>(X = Spell SP)</p>
-        </div>
-        <!-- end buff / debuff magic body 3 -->
-    </div>
-    <!-- end buff / debuff magic section -->
+		<div class="basic-magic-attacks-section thick-borders">
+			
+			<!-- start basic magic attacks header -->
+			<p class="magic-info-headers">Basic Magic Attacks:</p>
+			<!-- end basic magic attacks header -->
+			
+			<!-- start basic magic attacks body 1 -->
+			<div class="basic-magic-attack-body">
+				<p>Elemental Spell (1 Target): 1SP</p>
+				<ul>
+					<li>to hit: d6 + MA</li>
+					<li>damage: (x)d6 + MA</li>
+				</ul>
+			</div>
+			<!-- end basic magic attacks body 1 -->
+			
+			<!-- start basic magic attacks body 2 -->
+			<div class="basic-magic-attack-body">
+				<p>Elemental Spell (Multiple Targets): 2SP / target</p>
+				<ul>
+					<li>to hit: d6 + MA</li>
+					<li>damage: (x)d6 + MA</li>
+				</ul>
+			</div>
+			<!-- end basic magic attacks body 2 -->
+			
+			<!-- start basic magic attacks body 3 -->
+			<div class="basic-magic-attack-body">
+				<p>(X = Spell Dice!)</p>
+			</div>
+			<!-- end basic magic attacks body 3 -->
+		</div>
+		<!-- end basic magic attack section -->
+		
+		<!-- start basic non magic attack section -->
+		<div class="basic-non-magic-attacks-section thick-borders">
+			<!-- start basic non magic attacks header -->
+			<p class="magic-info-headers">Basic Non-Magic Attacks:</p>
+			<!-- end basic non magic attacks header -->
+			
+			<!-- start basic non magic attacks body 1 -->
+			<div class="basic-non-magic-attack-body">
+				<p>Gun Attack: 1 ammo</p>
+				<ul>
+					<li>to hit: d6 + (WB)</li>
+					<li>damage: (W)</li>
+				</ul>
+			</div>
+			<!-- end basic non magic attacks body 1 -->
+			
+			<!-- start basic non magic attacks body 2 -->
+			<div class="basic-non-magic-attack-body">
+				<p>Melee Attack:</p>
+				<ul>
+					<li>to hit: d6 + (WB)</li>
+					<li>damage: (W) + ST</li>
+				</ul>
+			</div>
+			<!-- end basic non magic attacks body 2 -->
+			
+			<!-- start basic non magic attacks body 3 -->
+			<div class="basic-non-magic-attack-body">
+				<p>(WB = Weapon Bonus)</p>
+				<p>(W = Weapon Damage Dice)</p>
+			</div>
+			<!-- end basic non magic attacks body 3 -->
+		</div>
+		<!-- end basic non magic attack section -->
+		
+		<!-- start buff / debuff magic section -->
+		<div class="buff-debuff-magic-section thick-borders">
+			<!-- start buff / debuff magic header -->
+			<p class="magic-info-headers">Buff / Debuff Magic:</p>
+			<!-- end buff / debuff magic header -->
+			
+			<!-- start buff / debuff magic body 1 -->
+			<div class="buff-debuff-body">
+				<p>Buff / Healing Spell: (X)SP</p>
+				<ul>
+					<li>automatically hits</li>
+					<li>refer to spell details for effects</li>
+				</ul>
+			</div>
+			<!-- end buff / debuff magic body 1 -->
+			
+			<!-- start buff / debuff magic body 2 -->
+			<div class="buff-debuff-body">
+				<p>Debuff Spell: (X)SP</p>
+				<ul>
+					<li>d6 + MA</li>
+					<li>refer to spell details for effects</li>
+				</ul>
+			</div>
+			<!-- end buff / debuff magic body 2 -->
+			
+			<!-- start buff / debuff magic body 3 -->
+			<div class="buff-debuff-body">
+				<p>(X = Spell SP)</p>
+			</div>
+			<!-- end buff / debuff magic body 3 -->
+		</div>
+		<!-- end buff / debuff magic section -->
 
-    </div>
-		<!--end magic 3 boxes section-->
+		</div>
+			<!--end magic 3 boxes section-->
 
 		<!-- start of info section  -->
 		<div class="info">
-        <p>
-            Remember. if you roll the value of your LU or higher, you score a Critical Hit! <br>
-            (You must have at least 1 LU to be able to score Critical Hits.)
+		<p>
+			Remember. if you roll the value of your LU or higher, you score a Critical Hit! <br>
+			(You must have at least 1 LU to be able to score Critical Hits.)
 
-        </p>
-        <p>
-            Hitting an enemy with a Critical Hit or an Element they are weak to will cause them to be knocked down!
-            Doing this gets you a
-            One More, which allows you to gain another turn. Enemies can get One Mores too!
-        </p>
-        <p>
-            In a One More, you can take another turn, or you can Baton Pass it to an ally! An ally under the effects
-            of a Baton Pass does
-            +2 extra damage--and if they get a One More, they can Baton Pass again! <br>
-            If the whole team gets a Baton Pass, you automatically win a non-boss combat!
-        </p>
+		</p>
+		<p>
+			Hitting an enemy with a Critical Hit or an Element they are weak to will cause them to be knocked down!
+			Doing this gets you a
+			One More, which allows you to gain another turn. Enemies can get One Mores too!
+		</p>
+		<p>
+			In a One More, you can take another turn, or you can Baton Pass it to an ally! An ally under the effects
+			of a Baton Pass does
+			+2 extra damage--and if they get a One More, they can Baton Pass again! <br>
+			If the whole team gets a Baton Pass, you automatically win a non-boss combat!
+		</p>
 
-        <p class="blue-border">
-            If all enemies in a combat are knocked down, then you get a Hold-Up! In a Hold-Up, you can use your
-            Social Stats to negotiate for
-            money or items, or you can launch an All-Out Attack, in which you and all of your allies score an
-            automatic hit with your
-            melee attack and deal Almighty Damage.
+		<p class="blue-border">
+			If all enemies in a combat are knocked down, then you get a Hold-Up! In a Hold-Up, you can use your
+			Social Stats to negotiate for
+			money or items, or you can launch an All-Out Attack, in which you and all of your allies score an
+			automatic hit with your
+			melee attack and deal Almighty Damage.
 
-        </p>
-    </div>
+		</p>
+	</div>
+		<div class="status-effect-buttons">
+		<p class="magic-info-headers">Status Effect Explanations:</p>
+		<button name="roll_burn" type="roll" class="txt-btn" value="&{template:status} {{status-name=BURN}} {{description=At the end of each of the afflicted party's turns, they take d6 damage. At the start of each of the afflicted party's turns, there is a 50% chance Burn will wear off.}} {{bonus-damage=Wind, Nuclear}}">Burn</button>
+		<button name="roll_freeze" type="roll" class="txt-btn" value="&{template:status} {{status-name=FREEZE}} {{description=The afflicted party cannot take actions. At the start of each of the afflicted party's turns, there is a 50% chance Freeze will wear off.}} {{bonus-damage=Melee, Nuclear}}">Freeze</button>
+		<button name="roll_shock" type="roll" class="txt-btn" value="&{template:status} {{status-name=SHOCK}} {{description=The afflicted party cannot take actions. Using a Melee attack on a Shocked foe has a 50% chance to transfer the status. At the start of each of the afflicted party's turns, there is a 50% chance Shock will wear off.}} {{bonus-damage=Melee, Nuclear}}">Shock</button>
+		<button name="roll_dizzy" type="roll" class="txt-btn" value="&{template:status} {{status-name=DIZZY}} {{description=The afflicted party has a 50% chance of their attack missing if their attack roll hits. At the start of each of the afflicted party's turns, there is a 50% chance Dizzy will wear off.}} {{bonus-damage=All}}">Dizzy</button>
+		<button name="roll_forget" type="roll" class="txt-btn" value="&{template:status} {{status-name=FORGET}} {{description=The afflicted party can only use Melee attacks or Gun attacks. At the start of each of the afflicted party's turns, there is a 50% chance Forget will wear off.}} {{bonus-damage=Psychic, Electric}}">Forget</button>
+		<button name="roll_sleep" type="roll" class="txt-btn" value="&{template:status} {{status-name=SLEEP}} {{description=The afflicted party cannot take actions, but regains 1HP and 1SP at the start of their turns. When the afflicted party is hit by any attack, Sleep wears off.}} {{bonus-damage=All}}">Sleep</button>
+		<button name="roll_confusion" type="roll" class="txt-btn" value="&{template:status} {{status-name=CONFUSION}} {{description=The afflicted party has a 40% chance to take their action as normal, a 30% chance to throw a random amount of money, and a 30% chance to throw a random item. At the start of each of the afflicted party's turns, there is a 50% chance Confusion will wear off.}} {{bonus-damage=Wind, Psychic}}">Confusion</button>
+		<button name="roll_fear" type="roll" class="txt-btn" value="&{template:status} {{status-name=FEAR}} {{description=The afflicted party has a 20% chance to run from battle at the start of each of its turns, and a 30% chance to do nothing. At the start of each of the afflicted party's turns, there is a 50% chance Fear will wear off.}} {{bonus-damage=Ice, Psychic}}">Fear</button>
+		<button name="roll_despair" type="roll" class="txt-btn" value="&{template:status} {{status-name=DESPAIR}} {{description=The afflicted party cannot take actions. If they do not recover from the ailment in 3 turns, they die. At the start of each of the afflicted party's turns, there is a 50% chance Despair will wear off.}} {{bonus-damage=Curse, Psychic}}">Despair</button>
+		<button name="roll_rage" type="roll" class="txt-btn" value="&{template:status} {{status-name=RAGE}} {{description=The afflicted party deals double damage, but has -1 AG and EN and can only use basic Melee attacks. At the start of each of the afflicted party's turns, there is a 50% chance Rage will wear off.}} {{bonus-damage=Fire, Psychic}}">Rage</button>
+		<button name="roll_brainwash" type="roll" class="txt-btn" value="&{template:status} {{status-name=BRAINWASH}} {{description=The afflicted party will either use Support / Healing skills on enemies, or attack allies. At the start of each of the afflicted party's turns or when attacked, there is a 50% chance Brainwash will wear off.}} {{bonus-damage=Bless, Psychic}}">Brainwash</button>
+	</div>
 		<!-- end of info section  -->
-		<div class="big-six-blocks-container">
-        <textarea name="attr_SpellBlock1" class="thick-borders bottom-textarea""></textarea>
-        <textarea name="attr_SpellBlock2" class="thick-borders bottom-textarea"></textarea>
-        <textarea name="attr_SpellBlock3" class="thick-borders bottom-textarea"></textarea>
-        <textarea name="attr_SpellBlock4" class="thick-borders bottom-textarea"></textarea>
-        <textarea name="attr_SpellBlock5" class="thick-borders bottom-textarea"></textarea>
-        <textarea name="attr_SpellBlock6" class="thick-borders bottom-textarea"></textarea>
-    </div>
-
+		<div class="basic-attacks">
+			<p class="magic-info-headers">Weapons:</p>
+			<fieldset class="repeating_weapons">
+				Name: <input type="text" name="attr_weapon_name"/>
+				Type: <select name="attr_weapon_type" class="weaponType">
+					<option value="Melee">Melee</option>
+					<option value="Gun">Gun</option>
+				</select>
+				<div class="gun-ammo-counter">
+					Ammo Left: <input type="number" name="attr_current_ammo"/> out of <input type="number" name="attr_max_ammo"/>
+				</div>
+				WB: <input type="number" name="attr_weapon_bonus"/>
+				<div class="melee-weapon-damage">
+					Weapon Damage: <input type="number" name="attr_damage_dice"/>d6 + STR(<input type="number" name="attr_strength_repeated" value="(@{strength})" disabled="true" />) + <input type="number" name="attr_damage_bonus"/>
+					Roll to Hit: 
+					Roll Damage: 
+				</div>
+				<div class="gun-weapon-damage">
+					Weapon Damage: <input type="number" name="attr_damage_dice"/>d6 + <input type="number" name="attr_damage_bonus"/>
+				</div>
+				
+			</fieldset>
+		</div>
+		<div class="spells">
+			<p class="magic-info-headers">Spells (MAX 6):</p>
+			<fieldset class="repeating_spells">
+				Name: <input type="text" name="attr_spell_name"/>
+				Type: <select name="attr_spell_type">
+					<option value="Buff">Buff</option>
+					<option value="Debuff">Debuff</option>
+					<option value="Elemental">Elemental</option>
+					<option value="Physical">Physical</option>
+					<option value="Status Effect">Status Effect</option>
+				</select>
+				Damage Type: <select name="attr_spell_damage_type">
+					<option value="Melee">Melee</option>
+					<option value="Gun">Gun</option>
+					<option value="Fire">Fire</option>
+					<option value="Ice">Ice</option>
+					<option value="Electric">Electric</option>
+					<option value="Wind">Wind</wind>
+					<option value="Psychic">Psychic</option>
+					<option value="Nuclear">Nuclear</option>
+					<option value="Bless">Bless</option>
+					<option value="Curse">Curse</option>
+					<option value="Almighty">Almighty</option>
+				</select>
+				Status Type:<select name="attr_spell_status_type">
+					<option value="Dizzy">Dizzy</option>
+					<option value="Forget">Forget</option>
+					<option value="Sleep">Sleep</Sleep>
+					<option value ="Confusion">Confusion</option>
+					<option value="Fear">Fear</option>
+					<option value="Despair">Despair</option>
+					<option value="Rage">Rage</option>
+					<option value="Brainwash">Brainwash</option>
+				</select>
+				Cost: <input type="number" name="attr_spell_cost"/> <span name="spell_cost_type"/>
+			</fieldset>
+		</div>
+		<!-- <div class="big-six-blocks-container">
+	<textarea name="attr_SpellBlock1" class="thick-borders bottom-textarea"></textarea>
+	<textarea name="attr_SpellBlock2" class="thick-borders bottom-textarea"></textarea>
+	<textarea name="attr_SpellBlock3" class="thick-borders bottom-textarea"></textarea>
+	<textarea name="attr_SpellBlock4" class="thick-borders bottom-textarea"></textarea>
+	<textarea name="attr_SpellBlock5" class="thick-borders bottom-textarea"></textarea>
+	<textarea name="attr_SpellBlock6" class="thick-borders bottom-textarea"></textarea>
+</div> -->
+	
 	</div>
 
 	<div class='sheet-abilities'>
@@ -1118,6 +1193,7 @@
 
 
 	<script type="text/worker">
+	<!-- Code to handle tab switch -->
 	const buttonlist = ["character","journal","magic", "neuroweapon", "abilities"];
 	buttonlist.forEach(button => {
 		on(`clicked:${button}`, function() {
@@ -1127,11 +1203,36 @@
 		});
 	});
 	
+	<!-- Code to hide or show ammo info and appropriate damage equation for gun/melee weapons -->
+	
+	on("change:repeating_weapons:weapon_type", function(eventInfo) {
+		console.log("Weapon Type changed");
+	
+		//Do something here
+		// eventInfo.sourceAttribute is the full name (including repeating ID) of the attribute 
+		// that originally triggered this event, 
+		// however the entire string will have been translated into lowercase and thus might not be 
+		// suitable for being fed directly
+		// into getAttrs() or other uses without being devandalized first.
+	});
+	
+	
 	</script>
 
-
-    <!--header container with logo, name, and block  -->
+    <!--Roll Templates  -->
+	<rolltemplate class="sheet-rolltemplate-status">
+		<div class="sheet-template-status-header">{{status-name}}</div>
+		<div class="sheet-template-status-description">{{description}}</div>
+		<div class="sheet-template-status-bonus-damage">Bonus Damage: {{bonus-damage}}</div>
+	</rolltemplate>
     
+	<rolltemplate class="sheet-rolltemplate-to-hit">
+		<div class="sheet-template-character-name">{{character-name}}</div>
+		<div class="sheet-template-spell-name">Spell Name: {{spell-name}}</div>
+		<div class="sheet-template-damage-type">Damage Type: {{damage-type}}</div>
+		<div class="sheet-template-roll-to-hit">Roll: {{roll-to-hit}} + {{modifier}} = {{total}}</div>
+		<div class="sheet-template-is-crit">Is Crit?: {{is-crit}}</div>
+	</rolltemplate>
 
 </div>
 <!--end of main-->
