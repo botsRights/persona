@@ -28,7 +28,7 @@
 
 <div class="main">
 
-	<input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='character'  />
+	<input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='character'  >
 
 	<div class="sheet-tabs">
 		<button type="action" name="act_character">Character</button>
@@ -74,23 +74,23 @@
             <div class="blank-div"></div>
 
             <div class="stats-row">
-                Kindness <input type="number" class="stats" name="attr_kindness">
+                Kindness <input type="number" class="stats" name="attr_kindness" value=0>
                 <button type='roll' class="d6-dice" name='roll_kindness' value='&{template:default} {{name=@{character_name}}} {{Kindness (+@{kindness})}} {{result=[[1d6 + @{kindness}}]]}}'/>
             </div>
             <div class="stats-row">
-                Guts <input class="stats" type="number" name="attr_guts">
+                Guts <input class="stats" type="number" name="attr_guts" value=0>
                 <button type='roll' class="d6-dice" name='roll_guts' value='&{template:default} {{name=@{character_name}}} {{Guts (+@{guts})}} {{result=[[1d6 + @{guts}}]]}}'/>
             </div>
             <div class="stats-row">
-                Charm <input class="stats" type="number" name="attr_charm">
+                Charm <input class="stats" type="number" name="attr_charm" value=0>
                 <button type='roll' class="d6-dice" name='roll_charm' value='&{template:default} {{name=@{character_name}}} {{Charm (+@{charm})}} {{result=[[1d6 + @{charm}}]]}}'/>
             </div>
             <div class="stats-row">
-                Proficiency <input class="stats" type="number" name="attr_proficiency">
+                Proficiency <input class="stats" type="number" name="attr_proficiency" value=0>
                 <button type='roll' class="d6-dice" name='roll_proficiency' value='&{template:default} {{name=@{character_name}}} {{Proficiency (+@{proficiency})}} {{result=[[1d6 + @{proficiency}}]]}}'/>
             </div>
             <div class="stats-row">
-                Knowledge <input class="stats" type="number" name="attr_knowledge">
+                Knowledge <input class="stats" type="number" name="attr_knowledge" value=0>
                 <button type='roll'class="d6-dice" name='roll_knowledge' value='&{template:default} {{name=@{character_name}}} {{Knowledge (+@{knowledge})}} {{result=[[1d6 + @{knowledge}}]]}}'/>
             </div>
         </div>
@@ -100,18 +100,18 @@
         <div class="hit-points-section thick-borders">
             <p>Hit Points</p>
             <p>En = Damage Reduction</p>
-            Current:<input type="number" name="attr_hp" class="long_number">&emsp;Max:<input type="number" class="long_number" name="attr_hp_max">
+            Current:<input type="number" name="attr_hp" class="long_number" value=0>&emsp;Max:<input type="number" class="long_number" name="attr_hp_max" value=0>
         </div>
 
         <!--spirit points section-->
         <div class="spirit-points-section thick-borders">
 			<p class="spiritPointsLabel">Spirit Points</p>
             <div class="spirit-bottom-box thin-borders">
-                Current:<input type="number" class="long_number" name="attr_sp">&emsp;Max:<input type="number" class="long_number" name="attr_sp_max">
+                Current:<input type="number" class="long_number" name="attr_sp" value=0>&emsp;Max:<input type="number" class="long_number" name="attr_sp_max" value=0>
             </div>
 			<p class="bondLevelsLabel"> Bond Levels</p>
             <div class="spirit-side-box thin-borders">    	
-				<input type="number" class="long_number" name="attr_bondLevels">
+				<input type="number" class="long_number" name="attr_bondLevels" value=0>
 			</div>
             
 		</div>
@@ -938,7 +938,8 @@
 							</tr>
 							<tr>
 								<th>
-									<button name="roll_str" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{strength}]] [[[[1d6@{luckLevelDiceRoll}]] + @{strength}]] [[[[1d6@{luckLevelDiceRoll}]] + @{strength}]] {{title=@{character_name}}} {{subtitle=Strength}} {{color=green}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}}"></button>							</th>
+									<button name="roll_str" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{strength}]] [[[[1d6@{luckLevelDiceRoll}]] + @{strength}]] [[[[1d6@{luckLevelDiceRoll}]] + @{strength}]] {{title=@{character_name}}} {{subtitle=Strength}} {{color=green}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}}"></button>							
+								</th>
 								<th>
 									<button name="roll_mag" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]] [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]] [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]] {{title=@{character_name}}} {{subtitle=Magic}} {{color=green}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}}"></button>
 								</th>
@@ -1122,16 +1123,20 @@
 		<div class="combat-information">
 			HP Current:<input type="number" name="attr_hp" class="long_number">&emsp;Max:<input type="number" name="attr_hp_max" class="long_number">
 			SP Current:<input type="number" name="attr_sp" class="long_number">&emsp;Max:<input type="number" name="attr_sp_max" class="long_number">
-			<button type="roll" class="d6-dice" name="roll_initiative" value="&{template:default} {{Initiative}} {{name=@{selected|character_name}}} {{Roll=[[1d6+@{agility}&{tracker}]]}}">Initiative</button>
-			<span>Modifier popup for rolls?<input type="checkbox" name="attr_rollmod" value="?{Modifiers?|0}" selected></span>
+			<button type="roll" class="d6-dice" name="roll_initiative" value="&{template:default} {{Initiative}} {{name=@{character_name}}} {{Roll=[[1d6+@{agility}&{tracker}]]}}">Initiative</button>
+			<span>Modifier popup for rolls? <input type="checkbox" name="attr_rollmod" value="?{Modifiers?|0}" selected></span>
 		</div>
 		<div class="basic-attacks">
 			<p class="magic-info-headers">Weapons:</p>
 			<fieldset class="repeating_weapons">	
-				<input type="hidden" name="attr_weapon-type" value="melee" class="weaponType">
-				<input type="hidden" name="attr_row_index" value="">
+				<input type="hidden" name="attr_weapon_type" value="melee" class="weaponType">
+				<input type="text" name="attr_row_index" value="">
+				<input type="text" name="attr_buttons_damage" value="">
+				<input type="text" name="attr_button_pay_ammo" value="">
+				
+
 				Name: <input type="text" name="attr_weapon-name">
-				Type: <select name="attr_weapon-type" class="weaponType">
+				Type: <select name="attr_weapon_type" class="weaponType">
 					<option value="melee" selected>Melee</option>
 					<option value="gun">Gun</option>
 				</select>
@@ -1139,9 +1144,10 @@
 					<div class='3colrow'>
 						<div class='col'>
 							<!-- Put the content for the first column here -->
-							WB: <input type="number" name="attr_weapon-bonus" value=0/>
+							WB: <input type="number" name="attr_weapon-bonus" value=0>
 							<br/>
-							<button name="roll_to-hit-melee" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{weapon-bonus}]]] [[[[1d6@{luckLevelDiceRoll}]] + @{weapon-bonus}]] [[[[1d6@{luckLevelDiceRoll}]] + @{weapon-bonus}]] {{title=@{character_name}}} {{subtitle=@{weapon-name}}} {{color=blue}} {{damage-type=Melee}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}} {{buttons=[0.5x](~@{character_id}|repeating_weapons_@{row_index}_damage-melee-half) [1x](~@{character_id}|repeating_weapons_@{row_index}_damage-melee-normal) [2x](~@{character_id}|repeating_weapons_@{row_index}_damage-melee-x2) [4x](~@{character_id}|repeating_weapons_@{row_index}_damage-melee-x4)}}">Roll to Hit</button><br/>
+							<button name="roll_to-hit-melee" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{weapon-bonus}]]] [[[[1d6@{luckLevelDiceRoll}]] + @{weapon-bonus}]] [[[[1d6@{luckLevelDiceRoll}]] + @{weapon-bonus}]] {{title=@{character_name}}} {{subtitle=@{weapon-name}}} {{color=blue}} {{damage-type=Melee}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}} {{buttons=@{buttons_damage}}}">Roll to Hit</button>
+							<br/>	
 						</div>
 						<div class='col'>
 							<!-- Second column -->
@@ -1189,15 +1195,19 @@
 							<!-- Put the content for the first column here -->
 							Ammo Left: <input type="number" name="attr_ammo" value=0> out of <input type="number" name="attr_ammo_max" value=0> 
 							<br/>
+							<button name="roll_decrementAmmo" type="roll" value="&{template:custom} {{title=@{character_name}}} !modattr --charid @{character_id} --repeating_weapons_@{row_index}_ammo|-1 {{desc=Ammo decreased by 1}}!!!">Pay Ammo</button>
+							<br/>
 							<!-- <button type="action" name="act_reduce-ammo">Reduce Ammo</button>
 							<br/> -->
+							
 							WB: <input type="number" name="attr_weapon-bonus" value=0> <br/>
-							<button name="roll_to-hit-gun" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{agility} + @{weapon-bonus}]] [[[[1d6@{luckLevelDiceRoll}]] + @{agility} + @{weapon-bonus}]] [[[[1d6@{luckLevelDiceRoll}]] + @{agility} + @{weapon-bonus}]] {{title=@{character_name}}} {{subtitle=@{weapon-name}}} {{color=blue}} {{damage-type=Gun}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}} {{ammo=@{ammo}}} {{ammo-max=@{ammo_max}}} {{buttons=[0.5x](~@{character_id}|repeating_weapons_@{row_index}_damage-gun-half) [1x](~@{character_id}|repeating_weapons_@{row_index}_damage-gun-normal) [2x](~@{character_id}|repeating_weapons_@{row_index}_damage-gun-x2) [4x](~@{character_id}|repeating_weapons_@{row_index}_damage-gun-x4)}}">Roll to Hit</button><br/>
+							<button name="roll_to-hit-gun" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{agility} + @{weapon-bonus}]] [[[[1d6@{luckLevelDiceRoll}]] + @{agility} + @{weapon-bonus}]] [[[[1d6@{luckLevelDiceRoll}]] + @{agility} + @{weapon-bonus}]] {{title=@{character_name}}} {{subtitle=@{weapon-name}}} {{color=blue}} {{damage-type=Gun}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}} {{ammo=@{ammo}}} {{ammo-max=@{ammo_max}}} {{buttons=@{buttons_damage}}} {{payButton=@{button_pay_ammo}}}">Roll to Hit</button>
+							<br/>
 
 						</div>
 						<div class='col'>
 							<!-- Second column -->
-							Weapon Damage: <input type="number" name="attr_damage-dice" value=0/>d6 + <input type="number" name="attr_damage-bonus" value=0/>
+							Weapon Damage: <input type="number" name="attr_damage-dice" value=0>d6 + <input type="number" name="attr_damage-bonus" value=0>
 							<br/>
 							<button name="roll_damage-gun-half" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{weapon-lifesteal-percentage}/100)*[[floor((@{damage-dice}d6+@{damage-bonus}+@{rollMod})/2)]])]]  {{rollType=Half Damage}} {{title=@{character_name}}} {{subtitle=@{weapon-name}}} {{damage-type=Gun}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{weapon-additional-effect}]]}} {{additionalStatusType=@{weapon-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{weapon-additional-effect-chance}]]}} {{lifesteal=[[@{weapon-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Half Damage</button>
 							<br/>
@@ -1240,7 +1250,9 @@
 		<div class="spells">
 			<p class="magic-info-headers">Spells (MAX 6):</p>
 			<fieldset class="repeating_spells">
-				Name: <input type="text" name="attr_spell-name">
+				<input type="text" name="attr_buttons_damage" value="">
+				<input type="text" name="attr_button_pay_cost" value="">
+				Name: <input type="text" name="attr_spell_name">
 				Type: <select name="attr_spell-type" class="spellType">
 					<option value="buff" selected>Buff</option>
 					<option value="debuff">Debuff</option>
@@ -1252,7 +1264,7 @@
 					<option value="status">Status Effect</option>
 				</select>
 				<input type="hidden" name="attr_spell-type" value="buff" class="spellType">
-				<input type="hidden" name="attr_row_index" value="">
+				<input type="text" name="attr_row_index" value="">
 				Multitarget?: <input type="checkbox" class= "multitargetToggle" name="attr_is_multitarget" value="1">
 				Cost: <input type="number" name="attr_spell_cost" value=0> 
 				<select name="attr_spell_cost_type" class="spellCostType">
@@ -1265,7 +1277,7 @@
 					<button type="roll" value="!modattr --silent --name @{character_name} --@{spell_cost_type}|-@{spell_cost}" name="roll_pay_cost" class="txt-btn">Pay Cost</button>
 				</div>
 				<div class="pay-costs-multiple">
-					<button type="roll" value="!modattr --silent  --name @{character_name} --@{spell_cost_type}|[[-@{spell_cost}*?{Targets?|1}]]" name="roll_pay_cost" class="txt-btn">Pay Cost</button>
+					<button type="roll" value="!modattr --silent  --name @{character_name} --@{spell_cost_type}|[[-@{spell_cost}*?{Targets?|1}]]" name="roll_pay_cost_multiple" class="txt-btn">Pay Cost</button>
 				</div>
 				
 				<div class="buff-spell">
@@ -1279,7 +1291,7 @@
 						  </div>
 						  <div class='col'>
 							<!-- Second column -->
-							<button name="roll_to-hit-debuff" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]]] [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]] [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]] {{title=@{character_name}}} {{subtitle=@{spell-name}}} {{color=blue}} {{damage-type=Debuff}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}} {{desc=@{spellDesc}}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{desc=@{spellDesc}}}">Roll to Hit</button><br/>
+							<button name="roll_to-hit-debuff" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]]] [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]] [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]] {{title=@{character_name}}} {{subtitle=@{spell_name}}} {{color=blue}} {{damage-type=Debuff}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}} {{desc=@{spellDesc}}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{desc=@{spellDesc}}} {{buttons=@{buttons_damage}}} {{payButton=@{button_pay_cost}}}">Roll to Hit</button><br/>
 							Additional Effect?: <input type="checkbox" name="attr_spell-additional-effect" class="show-spell-additional-effect" value=1/>
 							<div class="additional-effect-spell">
 								Status Type:<select name="attr_spell-addditional-status-type">
@@ -1319,7 +1331,7 @@
 							<option value="Almighty">Almighty</option>
 						</select>
 						<br/>
-						<button name="roll_to-hit-elemental" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]]] [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]] [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]] {{title=@{character_name}}} {{subtitle=@{spell-name}}} {{color=blue}} {{damage-type=@{spell-damage-type}}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}} {{buttons=[0.5x](~@{character_id}|repeating_spells_@{row_index}_damage-elemental-half) [1x](~@{character_id}|repeating_spells_@{row_index}_damage-elemental-normal) [2x](~@{character_id}|repeating_spells_@{row_index}_damage-elemental-x2) [4x](~@{character_id}|repeating_spells_@{row_index}_damage-elemental-x4)}}">Roll to Hit</button><br/>
+						<button name="roll_to-hit-elemental" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]]] [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]] [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]] {{title=@{character_name}}} {{subtitle=@{spell_name}}} {{color=blue}} {{damage-type=@{spell-damage-type}}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}} {{buttons=@{buttons_damage}}} {{payButton=@{button_pay_cost}}}}">Roll to Hit</button><br/>
 					  </div>
 
 					  <div class='col'>
@@ -1327,13 +1339,13 @@
 						Weapon Damage: <input type="number" name="attr_spell-damage-dice" value=0>d6 + <input type="number" name="attr_spell-damage-bonus" value=0>
 						<br/>
 						
-						<button name="roll_damage-elemental-half" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[floor((@{spell-damage-dice}d6+@{spell-damage-bonus}+@{magic}+@{rollMod})/2)]])]]  {{rollType=Half Damage}} {{title=@{character_name}}} {{subtitle=@{spell-name}}}  {{damage-type=@{spell-damage-type}}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Half Damage</button>
+						<button name="roll_damage-elemental-half" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[floor((@{spell-damage-dice}d6+@{spell-damage-bonus}+@{magic}+@{rollMod})/2)]])]]  {{rollType=Half Damage}} {{title=@{character_name}}} {{subtitle=@{spell_name}}}  {{damage-type=@{spell-damage-type}}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Half Damage</button>
 						<br/>
-						<button name="roll_damage-elemental-normal" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[@{spell-damage-dice}d6+@{spell-damage-bonus}+@{magic}+@{rollMod}]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell-name}}}  {{damage-type=@{spell-damage-type}}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Normal Damage</button>
+						<button name="roll_damage-elemental-normal" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[@{spell-damage-dice}d6+@{spell-damage-bonus}+@{magic}+@{rollMod}]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell_name}}}  {{damage-type=@{spell-damage-type}}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Normal Damage</button>
 						<br/>
-						<button name="roll_damage-elemental-x2" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{spell-damage-dice}d6+@{spell-damage-bonus}+@{magic}+@{rollMod})*2]])]]  {{rollType=Crit or Weakness}} {{title=@{character_name}}} {{subtitle=@{spell-name}}}  {{damage-type=@{spell-damage-type}}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x2 Damage</button>
+						<button name="roll_damage-elemental-x2" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{spell-damage-dice}d6+@{spell-damage-bonus}+@{magic}+@{rollMod})*2]])]]  {{rollType=Crit or Weakness}} {{title=@{character_name}}} {{subtitle=@{spell_name}}}  {{damage-type=@{spell-damage-type}}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x2 Damage</button>
 						<br/>
-						<button name="roll_damage-elemental-x4" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{spell-damage-dice}d6+@{spell-damage-bonus}+@{magic}+@{rollMod})*4]])]]  {{rollType=Crit and Weakness}} {{title=@{character_name}}} {{subtitle=@{spell-name}}}  {{damage-type=@{spell-damage-type}}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x4 Damage</button>
+						<button name="roll_damage-elemental-x4" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{spell-damage-dice}d6+@{spell-damage-bonus}+@{magic}}+@{rollMod})*4]])]]  {{rollType=Crit and Weakness}} {{title=@{character_name}}} {{subtitle=@{spell_name}}}  {{damage-type=@{spell-damage-type}}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x4 Damage</button>
 					  </div>
 
 					  <div class='col'>
@@ -1369,21 +1381,21 @@
 						<div class='col'>
 							<!-- Put the content for the first column here -->
 							Gun WB: <input type="number" name="attr_gun-bonus" value=0> <br/>
-							<button name="roll_to-hit-gun" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{agility} + @{gun-bonus}]] [[[[1d6@{luckLevelDiceRoll}]] + @{agility} + @{gun-bonus}]] [[[[1d6@{luckLevelDiceRoll}]] + @{agility} + @{gun-bonus}]] {{title=@{character_name}}} {{subtitle=@{spell-name}}} {{color=blue}} {{damage-type=Gun}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}} {{buttons=[0.5x](~@{character_id}|repeating_spells_@{row_index}_damage-gun-spell-half) [1x](~@{character_id}|repeating_spells_@{row_index}_damage-gun-spell-normal) [2x](~@{character_id}|repeating_spells_@{row_index}_damage-gun-spell-x2) [4x](~@{character_id}|repeating_spells_@{row_index}_damage-gun-spell-x4)}}">Roll to Hit</button><br/>
+							<button name="roll_to-hit-gun" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{agility} + @{gun-bonus}]] [[[[1d6@{luckLevelDiceRoll}]] + @{agility} + @{gun-bonus}]] [[[[1d6@{luckLevelDiceRoll}]] + @{agility} + @{gun-bonus}]] {{title=@{character_name}}} {{subtitle=@{spell_name}}} {{color=blue}} {{damage-type=Gun}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}} {{buttons=@{buttons_damage}}} {{payButton=@{button_pay_cost}}}}">Roll to Hit</button><br/>
 						</div>
 
 						<div class='col'>
 							<!-- Second column -->
 							Spell Damage: <input type="number" name="attr_gun-damage-dice" value=0>d6 + <input type="number" name="attr_gun-damage-bonus" value=0>
 							<br/>
-							<button name="roll_damage-gun-spell-half" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[floor((@{gun-damage-dice}d6+@{gun-damage-bonus}+ @{gun-bonus}+@{rollMod})/2)]])]]  {{rollType=Half Damage}} {{title=@{character_name}}} {{subtitle=@{spell-name}}}  {{damage-type=Gun}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Half Damage</button>
+							<button name="roll_damage-gun-spell-half" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[floor((@{gun-damage-dice}d6+@{gun-damage-bonus}+ @{gun-bonus}+@{rollMod})/2)]])]]  {{rollType=Half Damage}} {{title=@{character_name}}} {{subtitle=@{spell_name}}}  {{damage-type=Gun}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Half Damage</button>
 							<br/>
 							
-							<button name="roll_damage-gun-spell-normal" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[@{gun-damage-dice}d6+@{gun-damage-bonus}+ @{gun-bonus}+@{rollMod}]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell-name}}}  {{damage-type=Gun}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Normal Damage</button>
+							<button name="roll_damage-gun-spell-normal" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[@{gun-damage-dice}d6+@{gun-damage-bonus}+ @{gun-bonus}+@{rollMod}]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell_name}}}  {{damage-type=Gun}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Normal Damage</button>
 							<br/>
-							<button name="roll_damage-gun-spell-x2" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{gun-damage-dice}d6+@{gun-damage-bonus}+ @{gun-bonus}+@{rollMod})*2]])]]  {{rollType=Crit or Weakness}} {{title=@{character_name}}} {{subtitle=@{spell-name}}}  {{damage-type=Gun}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x2 Damage</button>
+							<button name="roll_damage-gun-spell-x2" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{gun-damage-dice}d6+@{gun-damage-bonus}+ @{gun-bonus}+@{rollMod})*2]])]]  {{rollType=Crit or Weakness}} {{title=@{character_name}}} {{subtitle=@{spell_name}}}  {{damage-type=Gun}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x2 Damage</button>
 							<br/>
-							<button name="roll_damage-gun-spell-x4" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{gun-damage-dice}d6+@{gun-damage-bonus}+ @{gun-bonus}+@{rollMod})*4]])]]  {{rollType=Crit and Weakness}} {{title=@{character_name}}} {{subtitle=@{spell-name}}}  {{damage-type=Gun}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x4 Damage</button>
+							<button name="roll_damage-gun-spell-x4" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{gun-damage-dice}d6+@{gun-damage-bonus}+ @{gun-bonus}+@{rollMod})*4]])]]  {{rollType=Crit and Weakness}} {{title=@{character_name}}} {{subtitle=@{spell_name}}}  {{damage-type=Gun}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x4 Damage</button>
 						</div>
 
 						<div class='col'>
@@ -1418,9 +1430,9 @@
 					<div class='2colrow'>
 					  <div class='col'>
 						<!-- Put the content for the first column here -->
-						Healing Roll: <input type="number" name="attr_spell-healing-dice" value=0/>d6 + <input type="number" name="attr_spell-healing-bonus" value=0/>
+						Healing Roll: <input type="number" name="attr_spell-healing-dice" value=0>d6 + <input type="number" name="attr_spell-healing-bonus" value=0>
 						<br/>
-						<button name="roll_healing-normal" type="roll" class="d6-dice" value="&{template:healing} [[floor((@{lifesteal-spell-percentage}/100)*[[@{spell-healing-dice}d6+@{spell-healing-bonus}+@{magic}]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell-name}}} {{healingTotal=$[[0]]}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Healing</button>
+						<button name="roll_healing-normal" type="roll" class="d6-dice" value="&{template:healing} [[floor((@{lifesteal-spell-percentage}/100)*[[@{spell-healing-dice}d6+@{spell-healing-bonus}+@{magic}]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell_name}}} {{healingTotal=$[[0]]}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}} {{payButton=@{button_pay_cost}}}}">Roll Healing</button>
 					  </div>
 
 					  <div class='col'>
@@ -1449,25 +1461,26 @@
 				<div class="passive-spell">
 					Description <textarea class="spellOrAbilityDesc" name="attr_spellDesc"></textarea>
 				</div>
-				<div class="physical-spell">
+				<div class="melee-spell">
 					<div class='3colrow'>
 					  <div class='col'>
 						<!-- Put the content for the first column here -->
 						WB: <input type="number" name="attr_melee-spell-weapon-bonus" value=0><br/>
-						<button name="roll_to-hit-melee-spell" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{melee-spell-weapon-bonus}]]] [[[[1d6@{luckLevelDiceRoll}]] + @{melee-spell-weapon-bonus}]] [[[[1d6@{luckLevelDiceRoll}]] + @{melee-spell-weapon-bonus}]] {{title=@{character_name}}} {{subtitle=@{spell-name}}} {{color=blue}} {{damage-type=Melee}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}} {{buttons=[0.5x](~@{character_id}|repeating_spells_@{row_index}_damage-melee-spell-half) [1x](~@{character_id}|repeating_spells_@{row_index}_damage-melee-spell-normal) [2x](~@{character_id}|repeating_spells_@{row_index}_damage-melee-spell-x2) [4x](~@{character_id}|repeating_spells_@{row_index}_damage-melee-spell-x4)}}">Roll to Hit</button><br/>
+						<button name="roll_to-hit-melee-spell_single" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{melee-spell-weapon-bonus}]]] [[[[1d6@{luckLevelDiceRoll}]] + @{melee-spell-weapon-bonus}]] [[[[1d6@{luckLevelDiceRoll}]] + @{melee-spell-weapon-bonus}]] {{title=@{character_name}}} {{subtitle=@{spell_name}}} {{color=blue}} {{damage-type=Melee}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}} {{buttons=@{buttons_damage}}} {{payButton=@{button_pay_cost}}}}">Roll to Hit</button><br/>
+						
 					  </div>
 
 					  <div class='col'>
 						<!-- Second column -->
 						Damage: <input type="number" name="attr_spell-damage-dice" value=0>d6 + <input type="number" name="attr_spell-damage-bonus" value=0> <br/>
 						
-						<button name="roll_damage-melee-spell-half" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[floor((@{spell-damage-dice}d6+@{spell-damage-bonus}+@{strength}+@{melee-spell-weapon-bonus}+@{rollMod})/2)]])]]  {{rollType=Half Damage}} {{title=@{character_name}}} {{subtitle=@{spell-name}}} {{damage-type=Melee}} {{damage=$[[0]]}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Half Damage</button>
+						<button name="roll_damage-melee-spell-half" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[floor((@{spell-damage-dice}d6+@{spell-damage-bonus}+@{strength}+@{melee-spell-weapon-bonus}+@{rollMod})/2)]])]]  {{rollType=Half Damage}} {{title=@{character_name}}} {{subtitle=@{spell_name}}} {{damage-type=Melee}} {{damage=$[[0]]}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Half Damage</button>
 						<br/>
-						<button name="roll_damage-melee-spell-normal" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[@{spell-damage-dice}d6+@{spell-damage-bonus}+@{strength}+@{melee-spell-weapon-bonus}+@{rollMod}]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell-name}}} {{damage-type=Melee}} {{damage=$[[0]]}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Normal Damage</button>
+						<button name="roll_damage-melee-spell-normal" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[@{spell-damage-dice}d6+@{spell-damage-bonus}+@{strength}+@{melee-spell-weapon-bonus}+@{rollMod}]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell_name}}} {{damage-type=Melee}} {{damage=$[[0]]}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Normal Damage</button>
 						<br/>
-						<button name="roll_damage-melee-spell-x2" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{spell-damage-dice}d6+@{spell-damage-bonus}+@{strength}+@{melee-spell-weapon-bonus}+@{rollMod})*2]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell-name}}} {{damage-type=Melee}} {{damage=$[[0]]}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x2 Damage</button>
+						<button name="roll_damage-melee-spell-x2" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{spell-damage-dice}d6+@{spell-damage-bonus}+@{strength}+@{melee-spell-weapon-bonus}+@{rollMod})*2]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell_name}}} {{damage-type=Melee}} {{damage=$[[0]]}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x2 Damage</button>
 						<br/>
-						<button name="roll_damage-melee-spell-x4" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{spell-damage-dice}d6+@{spell-damage-bonus}+@{strength}+@{melee-spell-weapon-bonus}+@{rollMod})*4]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell-name}}} {{damage-type=Melee}} {{damage=$[[0]]}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x4 Damage</button>
+						<button name="roll_damage-melee-spell-x4" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{spell-damage-dice}d6+@{spell-damage-bonus}+@{strength}+@{melee-spell-weapon-bonus}+@{rollMod})*4]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell_name}}} {{damage-type=Melee}} {{damage=$[[0]]}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x4 Damage</button>
 					  </div>
 
 					  <div class='col'>
@@ -1518,7 +1531,7 @@
 						Percentage Chance: <input type="number" name="attr_spell-effect-chance" min="0" max="100" value="0"/>%
 						<br/>
 
-						<button name="roll_status_spell_to_hit" type="roll" class="d6-dice" value="&{template:percentage-roll} {{title=@{character_name}}} {{subtitle=@{spell-name}}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{addtionalStatusEffectName=@{spell-addditional-status-type}}} {{status-type=@{spell-status-type}}} {{statusChanceRoll=[[1d100]]}} {{additionalStatusChanceRoll=[[1d100]]}} {{statusNumberToBeat=[[100-@{spell-effect-chance}]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}}">Roll to Hit</button>
+						<button name="roll_status_spell_to_hit" type="roll" class="d6-dice" value="&{template:percentage-roll} {{title=@{character_name}}} {{subtitle=@{spell_name}}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{addtionalStatusEffectName=@{spell-addditional-status-type}}} {{status-type=@{spell-status-type}}} {{statusChanceRoll=[[1d100]]}} {{additionalStatusChanceRoll=[[1d100]]}} {{statusNumberToBeat=[[100-@{spell-effect-chance}]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}}">Roll to Hit</button>
 					  </div>
 
 					  <div class='col'>
@@ -1602,7 +1615,7 @@
 		<div class="neuroweapon-spells">
 			<p class="magic-info-headers">Spells:</p>
 			<fieldset class="repeating_neuroweapon">
-				Name: <input type="text" name="attr_spell-name">
+				Name: <input type="text" name="attr_spell_name">
 				Type: <select name="attr_spell-type" class="spellType">
 					<option value="buff" selected>Buff</option>
 					<option value="debuff">Debuff</option>
@@ -1642,7 +1655,7 @@
 						  </div>
 						  <div class='col'>
 							<!-- Second column -->
-							<button name="roll_to-hit-debuff-neuroweapon" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]]] [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]] [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]] {{title=@{character_name}}} {{subtitle=@{spell-name} w/ Neuroweapon}} {{color=blue}} {{damage-type=Debuff}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}} {{desc=@{spellDesc}}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{desc=@{spellDesc}}}">Roll to Hit</button><br/>
+							<button name="roll_to-hit-debuff-neuroweapon" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]]] [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]] [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]] {{title=@{character_name}}} {{subtitle=@{spell_name} w/ Neuroweapon}} {{color=blue}} {{damage-type=Debuff}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}} {{desc=@{spellDesc}}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{desc=@{spellDesc}}}">Roll to Hit</button><br/>
 							Additional Effect?: <input type="checkbox" name="attr_spell-additional-effect" class="show-spell-additional-effect" value=1/>
 							<div class="additional-effect-spell">
 								Status Type:<select name="attr_spell-addditional-status-type">
@@ -1681,7 +1694,7 @@
 							<option value="Almighty">Almighty</option>
 						</select>
 						<br/>
-						<button name="roll_to-hit-elemental-neuroweapon" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]]] [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]] [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]] {{title=@{character_name}}} {{subtitle=@{spell-name} w/Neuroweapon}} {{color=blue}} {{damage-type=@{spell-damage-type}}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}} {{buttons=[0.5x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-elemental-half-neuroweapon) [1x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-elemental-normal-neuroweapon) [2x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-elemental-x2-neuroweapon) [4x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-elemental-x4-neuroweapon)}}">Roll to Hit</button><br/>
+						<button name="roll_to-hit-elemental-neuroweapon" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]]] [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]] [[[[1d6@{luckLevelDiceRoll}]] + @{magic}]] {{title=@{character_name}}} {{subtitle=@{spell_name} w/Neuroweapon}} {{color=blue}} {{damage-type=@{spell-damage-type}}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}} {{buttons=[0.5x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-elemental-half-neuroweapon) [1x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-elemental-normal-neuroweapon) [2x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-elemental-x2-neuroweapon) [4x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-elemental-x4-neuroweapon)}}">Roll to Hit</button><br/>
 					  </div>
 
 					  <div class='col'>
@@ -1689,13 +1702,13 @@
 						Weapon Damage: <input type="number" name="attr_spell-damage-dice" value=0>d6 + <input type="number" name="attr_spell-damage-bonus" value=0>
 						<br/>
 						
-						<button name="roll_damage-elemental-half-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[floor((@{spell-damage-dice}d6+@{spell-damage-bonus}+@{magic}+@{rollmod})/2)]])]]  {{rollType=Half Damage}} {{title=@{character_name}}} {{subtitle=@{spell-name} w/ Neuroweapon}}  {{damage-type=@{spell-damage-type}}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Half Damage</button>
+						<button name="roll_damage-elemental-half-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[floor((@{spell-damage-dice}d6+@{spell-damage-bonus}+@{magic}+@{rollmod})/2)]])]]  {{rollType=Half Damage}} {{title=@{character_name}}} {{subtitle=@{spell_name} w/ Neuroweapon}}  {{damage-type=@{spell-damage-type}}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Half Damage</button>
 						<br/>
-						<button name="roll_damage-elemental-normal-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[@{spell-damage-dice}d6+@{spell-damage-bonus}+@{magic}+@{rollmod}]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell-name} w/ Neuroweapon}}  {{damage-type=@{spell-damage-type}}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Normal Damage</button>
+						<button name="roll_damage-elemental-normal-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[@{spell-damage-dice}d6+@{spell-damage-bonus}+@{magic}+@{rollmod}]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell_name} w/ Neuroweapon}}  {{damage-type=@{spell-damage-type}}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Normal Damage</button>
 						<br/>
-						<button name="roll_damage-elemental-x2-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{spell-damage-dice}d6+@{spell-damage-bonus}+@{magic}+@{rollmod})*2]])]]  {{rollType=Crit or Weakness}} {{title=@{character_name}}} {{subtitle=@{spell-name} w/ Neuroweapon}}  {{damage-type=@{spell-damage-type}}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x2 Damage</button>
+						<button name="roll_damage-elemental-x2-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{spell-damage-dice}d6+@{spell-damage-bonus}+@{magic}+@{rollmod})*2]])]]  {{rollType=Crit or Weakness}} {{title=@{character_name}}} {{subtitle=@{spell_name} w/ Neuroweapon}}  {{damage-type=@{spell-damage-type}}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x2 Damage</button>
 						<br/>
-						<button name="roll_damage-elemental-x4-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{spell-damage-dice}d6+@{spell-damage-bonus}+@{magic}+@{rollmod})*4]])]]  {{rollType=Crit and Weakness}} {{title=@{character_name}}} {{subtitle=@{spell-name} w/ Neuroweapon}}  {{damage-type=@{spell-damage-type}}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x4 Damage</button>
+						<button name="roll_damage-elemental-x4-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{spell-damage-dice}d6+@{spell-damage-bonus}+@{magic}+@{rollmod})*4]])]]  {{rollType=Crit and Weakness}} {{title=@{character_name}}} {{subtitle=@{spell_name} w/ Neuroweapon}}  {{damage-type=@{spell-damage-type}}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x4 Damage</button>
 					  </div>
 
 					  <div class='col'>
@@ -1731,21 +1744,21 @@
 						<div class='col'>
 							<!-- Put the content for the first column here -->
 							Gun WB: <input type="number" name="attr_gun-bonus" value=0> <br/>
-							<button name="roll_to-hit-gun-neuroweapon" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{agility} + @{gun-bonus}]] [[[[1d6@{luckLevelDiceRoll}]] + @{agility} + @{gun-bonus}+@{rollmod}]] [[[[1d6@{luckLevelDiceRoll}]] + @{agility} + @{gun-bonus}]] {{title=@{character_name}}} {{subtitle=@{spell-name} w/ Neuroweapon}} {{color=blue}} {{damage-type=Gun}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}} {{buttons=[0.5x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-gun-spell-half-damage-neuroweapon) [1x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-gun-spell-normal-neuroweapon) [2x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-gun-spell-x2-neuroweapon) [4x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-gun-spell-x4-neuroweapon)}}">Roll to Hit</button><br/>
+							<button name="roll_to-hit-gun-neuroweapon" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{agility} + @{gun-bonus}]] [[[[1d6@{luckLevelDiceRoll}]] + @{agility} + @{gun-bonus}+@{rollmod}]] [[[[1d6@{luckLevelDiceRoll}]] + @{agility} + @{gun-bonus}]] {{title=@{character_name}}} {{subtitle=@{spell_name} w/ Neuroweapon}} {{color=blue}} {{damage-type=Gun}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}} {{buttons=[0.5x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-gun-spell-half-damage-neuroweapon) [1x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-gun-spell-normal-neuroweapon) [2x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-gun-spell-x2-neuroweapon) [4x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-gun-spell-x4-neuroweapon)}}">Roll to Hit</button><br/>
 						</div>
 
 						<div class='col'>
 							<!-- Second column -->
 							Spell Damage: <input type="number" name="attr_gun-damage-dice" value=0>d6 + <input type="number" name="attr_gun-damage-bonus" value=0>
 							<br/>
-							<button name="roll_damage-gun-spell-half-damage-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[floor((@{gun-damage-dice}d6+@{gun-damage-bonus}+ @{gun-bonus}+@{rollmod})/2)]])]]  {{rollType=Half Damage}} {{title=@{character_name}}} {{subtitle=@{spell-name} w/ Neuroweapon}}  {{damage-type=Gun}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Half Damage</button>
+							<button name="roll_damage-gun-spell-half-damage-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[floor((@{gun-damage-dice}d6+@{gun-damage-bonus}+ @{gun-bonus}+@{rollmod})/2)]])]]  {{rollType=Half Damage}} {{title=@{character_name}}} {{subtitle=@{spell_name} w/ Neuroweapon}}  {{damage-type=Gun}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Half Damage</button>
 							<br/>
 							
-							<button name="roll_damage-gun-spell-normal-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[@{gun-damage-dice}d6+@{gun-damage-bonus}+ @{gun-bonus}+@{rollmod}]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell-name} w/ Neuroweapon}}  {{damage-type=Gun}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Normal Damage</button>
+							<button name="roll_damage-gun-spell-normal-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[@{gun-damage-dice}d6+@{gun-damage-bonus}+ @{gun-bonus}+@{rollmod}]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell_name} w/ Neuroweapon}}  {{damage-type=Gun}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Normal Damage</button>
 							<br/>
-							<button name="roll_damage-gun-spell-x2-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{gun-damage-dice}d6+@{gun-damage-bonus}+ @{gun-bonus}+@{rollmod})*2]])]]  {{rollType=Crit or Weakness}} {{title=@{character_name}}} {{subtitle=@{spell-name} w/ Neuroweapon}}  {{damage-type=Gun}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x2 Damage</button>
+							<button name="roll_damage-gun-spell-x2-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{gun-damage-dice}d6+@{gun-damage-bonus}+ @{gun-bonus}+@{rollmod})*2]])]]  {{rollType=Crit or Weakness}} {{title=@{character_name}}} {{subtitle=@{spell_name} w/ Neuroweapon}}  {{damage-type=Gun}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x2 Damage</button>
 							<br/>
-							<button name="roll_damage-gun-spell-x4-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{gun-damage-dice}d6+@{gun-damage-bonus}+ @{gun-bonus}+@{rollmod})*4]])]]  {{rollType=Crit and Weakness}} {{title=@{character_name}}} {{subtitle=@{spell-name} w/ Neuroweapon}}  {{damage-type=Gun}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{statusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x4 Damage</button>
+							<button name="roll_damage-gun-spell-x4-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{gun-damage-dice}d6+@{gun-damage-bonus}+ @{gun-bonus}+@{rollmod})*4]])]]  {{rollType=Crit and Weakness}} {{title=@{character_name}}} {{subtitle=@{spell_name} w/ Neuroweapon}}  {{damage-type=Gun}} {{damage=$[[0]]}}   {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{statusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x4 Damage</button>
 						</div>
 
 						<div class='col'>
@@ -1780,9 +1793,9 @@
 					<div class='2colrow'>
 					  <div class='col'>
 						<!-- Put the content for the first column here -->
-						Healing Roll: <input type="number" name="attr_spell-healing-dice" value=0/>d6 + <input type="number" name="attr_spell-healing-bonus" value=0/>
+						Healing Roll: <input type="number" name="attr_spell-healing-dice" value=0>d6 + <input type="number" name="attr_spell-healing-bonus" value=0>
 						<br/>
-						<button name="roll_healing-normal-neuroweapon" type="roll" class="d6-dice" value="&{template:healing} [[floor((@{lifesteal-spell-percentage}/100)*[[@{spell-healing-dice}d6+@{spell-healing-bonus}+@{magic}+@{rollmod}]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell-name} w/ Neuroweapon}} {{healingTotal=$[[0]]}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Healing</button>
+						<button name="roll_healing-normal-neuroweapon" type="roll" class="d6-dice" value="&{template:healing} [[floor((@{lifesteal-spell-percentage}/100)*[[@{spell-healing-dice}d6+@{spell-healing-bonus}+@{magic}+@{rollmod}]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell_name} w/ Neuroweapon}} {{healingTotal=$[[0]]}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Healing</button>
 					  </div>
 
 					  <div class='col'>
@@ -1811,25 +1824,25 @@
 				<div class="passive-spell">
 					Description <textarea class="spellOrAbilityDesc" name="attr_spellDesc"></textarea>
 				</div>
-				<div class="physical-spell">
+				<div class="melee-spell">
 					<div class='3colrow'>
 				  <div class='col'>
 					<!-- Put the content for the first column here -->
 					WB: <input type="number" name="attr_melee-spell-weapon-bonus" value=0>
-					<button name="roll_to-hit-melee-spell-neuroweapon" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{melee-spell-weapon-bonus}]]] [[[[1d6@{luckLevelDiceRoll}]] + @{melee-spell-weapon-bonus}]] [[[[1d6@{luckLevelDiceRoll}]] + @{melee-spell-weapon-bonus}]] {{title=@{character_name}}} {{subtitle=@{spell-name} w/ Neuroweapon}} {{color=blue}} {{damage-type=Melee}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}} {{buttons=[0.5x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-melee-spell-half-damage-neuroweapon) [1x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-melee-spell-normal-neuroweapon) [2x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-melee-spell-x2-neuroweapon) [4x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-melee-spell-x4-neuroweapon)}}">Roll to Hit</button><br/>
+					<button name="roll_to-hit-melee-spell-neuroweapon" type="roll" class="d6-dice" value="&{template:roll-with-luck} [[[[1d6@{luckLevelDiceRoll}]] + @{melee-spell-weapon-bonus}]]] [[[[1d6@{luckLevelDiceRoll}]] + @{melee-spell-weapon-bonus}]] [[[[1d6@{luckLevelDiceRoll}]] + @{melee-spell-weapon-bonus}]] {{title=@{character_name}}} {{subtitle=@{spell_name} w/ Neuroweapon}} {{color=blue}} {{damage-type=Melee}} {{rollOne=$[[0]]}} {{rollTwo=$[[2]]}} {{rollThree=$[[3]]}} {{rollOneTotal=$[[1]]}} {{rollTwoTotal=$[[4]]}} {{rollThreeTotal=$[[6]]}} {{luck=[[@{luck}]]}} {{buttons=[0.5x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-melee-spell-half-damage-neuroweapon) [1x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-melee-spell-normal-neuroweapon) [2x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-melee-spell-x2-neuroweapon) [4x](~@{character_id}|repeating_neuroweapon_@{row_index}_damage-melee-spell-x4-neuroweapon)}}">Roll to Hit</button><br/>
 				  </div>
 
 				  <div class='col'>
 					<!-- Second column -->
 					Damage: <input type="number" name="attr_spell-damage-dice" value=0>d6 + <input type="number" name="attr_spell-damage-bonus" value=0> <br/>
 					
-					<button name="roll_damage-melee-spell-half-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[floor((@{spell-damage-dice}d6+@{spell-damage-bonus}+@{strength}+@{melee-spell-weapon-bonus}+@{rollmod})/2)]])]]  {{rollType=Half Damage}} {{title=@{character_name}}} {{subtitle=@{spell-name} w/ Neuroweapon}} {{damage-type=Melee}} {{damage=$[[0]]}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Half Damage</button>
+					<button name="roll_damage-melee-spell-half-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[floor((@{spell-damage-dice}d6+@{spell-damage-bonus}+@{strength}+@{melee-spell-weapon-bonus}+@{rollmod})/2)]])]]  {{rollType=Half Damage}} {{title=@{character_name}}} {{subtitle=@{spell_name} w/ Neuroweapon}} {{damage-type=Melee}} {{damage=$[[0]]}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Half Damage</button>
 					<br/>
-					<button name="roll_damage-melee-spell-normal-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[@{spell-damage-dice}d6+@{spell-damage-bonus}+@{strength}+@{melee-spell-weapon-bonus}+@{rollmod}]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell-name} w/ Neuroweapon}} {{damage-type=Melee}} {{damage=$[[0]]}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Normal Damage</button>
+					<button name="roll_damage-melee-spell-normal-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[@{spell-damage-dice}d6+@{spell-damage-bonus}+@{strength}+@{melee-spell-weapon-bonus}+@{rollmod}]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell_name} w/ Neuroweapon}} {{damage-type=Melee}} {{damage=$[[0]]}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll Normal Damage</button>
 					<br/>
-					<button name="roll_damage-melee-spell-x2-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{spell-damage-dice}d6+@{spell-damage-bonus}+@{strength}+@{melee-spell-weapon-bonus}+@{rollmod})*2]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell-name} w/ Neuroweapon}} {{damage-type=Melee}} {{damage=$[[0]]}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x2 Damage</button>
+					<button name="roll_damage-melee-spell-x2-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{spell-damage-dice}d6+@{spell-damage-bonus}+@{strength}+@{melee-spell-weapon-bonus}+@{rollmod})*2]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell_name} w/ Neuroweapon}} {{damage-type=Melee}} {{damage=$[[0]]}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x2 Damage</button>
 					<br/>
-					<button name="roll_damage-melee-spell-x4-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{spell-damage-dice}d6+@{spell-damage-bonus}+@{strength}+@{melee-spell-weapon-bonus}+@{rollmod})*4]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell-name} w/ Neuroweapon}} {{damage-type=Melee}} {{damage=$[[0]]}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x4 Damage</button>
+					<button name="roll_damage-melee-spell-x4-neuroweapon" type="roll" class="d6-dice" value="&{template:damage} [[floor((@{lifesteal-spell-percentage}/100)*[[(@{spell-damage-dice}d6+@{spell-damage-bonus}+@{strength}+@{melee-spell-weapon-bonus}+@{rollmod})*4]])]]  {{rollType=Normal}} {{title=@{character_name}}} {{subtitle=@{spell_name} w/ Neuroweapon}} {{damage-type=Melee}} {{damage=$[[0]]}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{additionalStatusType=@{spell-addditional-status-type}}} {{additionalStatusChanceRoll=[[1d100]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}} {{lifesteal=[[@{spell-lifesteal}]]}} {{lifesteal-amount=$[[1]]}}">Roll x4 Damage</button>
 				  </div>
 
 				  <div class='col'>
@@ -1880,7 +1893,7 @@
 						Percentage Chance: <input type="number" name="attr_spell-effect-chance" min="0" max="100" value="0"/>%
 						<br/>
 
-						<button name="roll_status_spell_to_hit_neuroweapon" type="roll" class="d6-dice" value="&{template:percentage-roll} {{title=@{character_name}}} {{subtitle=@{spell-name} w/ Neuroweapon}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{addtionalStatusEffectName=@{spell-addditional-status-type}}} {{status-type=@{spell-status-type}}} {{statusChanceRoll=[[1d100]]}} {{additionalStatusChanceRoll=[[1d100]]}} {{statusNumberToBeat=[[100-@{spell-effect-chance}]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}}">Roll to Hit</button>
+						<button name="roll_status_spell_to_hit_neuroweapon" type="roll" class="d6-dice" value="&{template:percentage-roll} {{title=@{character_name}}} {{subtitle=@{spell_name} w/ Neuroweapon}} {{additionalStatusEffect=[[@{spell-additional-effect}]]}} {{addtionalStatusEffectName=@{spell-addditional-status-type}}} {{status-type=@{spell-status-type}}} {{statusChanceRoll=[[1d100]]}} {{additionalStatusChanceRoll=[[1d100]]}} {{statusNumberToBeat=[[100-@{spell-effect-chance}]]}} {{additionalStatusNumberToBeat=[[100-@{spell-additional-effect-chance}]]}}">Roll to Hit</button>
 					  </div>
 
 					  <div class='col'>
@@ -1970,7 +1983,9 @@
 					//});
 				//}
 			//});
-		//});
+		//}); attr_character_id-chunk
+		
+		
 		
 		<!-- Code to keep track of number of endurance slots -->
 		on("change:endurance", function(eventInfo) {
@@ -1989,15 +2004,33 @@
 			//Would be triggered when any attribute in the repeating_weapons section is changed
 			// eventInfo.sourceAttribute is the full name (lowercased)(including repeating ID) 
 			// of the attribute that originally triggered this event. 
-			
-			var index="";
+			console.log("hit weapons 1");
 			var name_arr = eventInfo.sourceAttribute.split("_");
-
-			index = name_arr[2];
-			
-			setAttrs({
-			  repeating_weapons_row_index: index
-		  });
+			var index = name_arr[2];
+			var damage="";
+			var pay_ammo="";
+			getAttrs([
+				"repeating_weapons_weapon_type",
+				"character_id"
+			], function(values) {
+				console.log("hit weapons 2 - "+values.repeating_weapons_weapon_type);
+				if (values.repeating_weapons_weapon_type === "melee"){
+					console.log("hit weapons melee");
+					damage="[0.5x](~"+values.character_id+"|repeating_weapons_" + index +"_damage-melee-half) [1x](~"+values.character_id+"|repeating_weapons_" + index +"_damage-melee-normal) [2x](~"+values.character_id+"|repeating_weapons_" + index +"_damage-melee-x2) [4x](~"+values.character_id+"|repeating_weapons_" + index +"_damage-melee-x4)";
+				} else {
+					console.log("hit weapons else");
+					damage = damage="[0.5x](~"+values.character_id+"|repeating_weapons_" + index +"_damage-gun-half) [1x](~"+values.character_id+"|repeating_weapons_" + index +"_damage-gun-normal) [2x](~"+values.character_id+"|repeating_weapons_" + index +"_damage-gun-x2) [4x](~"+values.character_id+"|repeating_weapons_" + index +"_damage-gun-x4)";
+					pay_ammo="[Pay Ammo](~"+values.character_id+"|repeating_weapons_" + index +"_decrementAmmo)";
+				}
+				console.log("damage buttons: " + damage);
+				console.log("pay ammo buttons: " + pay_ammo);
+				console.log("row index: "+ index);
+				setAttrs({
+						repeating_weapons_buttons_damage: damage,
+						repeating_weapons_button_pay_ammo: pay_ammo,
+						repeating_weapons_row_index: index
+				});
+			});
 		});
 		
 		on("change:repeating_neuroweapon", function(eventInfo) {
@@ -2019,15 +2052,55 @@
 			// eventInfo.sourceAttribute is the full name (lowercased)(including repeating ID) 
 			// of the attribute that originally triggered this event. 
 			
-			var index="";
 			var name_arr = eventInfo.sourceAttribute.split("_");
-
-			index = name_arr[2];
-			
-			setAttrs({
-			  repeating_spells_row_index: index
-		  });
+			var index = name_arr[2];
+			var damage="";
+			var keyword="";
+			var pay="";
+			getAttrs([
+				"spell_type",
+				"character_id",
+				"is_multitarget"
+			], function(values) {
+				pay="[Pay Cost] (~"+values.character_id+"|repeating_spells_" + index +"_pay-costs)";
+				if (values.is_multitarget === 1){
+					pay += "-multiple)";
+				} else{
+					pay += ")";
+				}
+				if (values.spell_type==="elemental"){
+					keyword = "elemental";
+				} else if (values.spell_type==="gun"){
+					keyword = "gun";
+				} else if (values.spell_type==="melee"){
+					keyword = "melee";
+				} else if (values.spell_type==="healing"){
+					keyword = "healing";
+				}
+				
+				if (keyword === "healing"){
+					damage="[Roll Healing](~"+values.character_id+"|repeating_spells_" + index +"healing-normal)";
+					setAttrs({
+						repeating_spells_buttons_damage: damage,
+						repeating_spells_button_pay_cost: pay,
+						repeating_spells_row_index: index
+					});
+				} else if (keyword != ""){
+					damage="[0.5x](~"+values.character_id+"|repeating_spells_" + index +"_damage-"+keyword+"-half) [1x](~"+values.character_id+"|repeating_spells_" + index +"_damage-"+keyword+"-normal) [2x](~"+values.character_id+"|repeating_spells_" + index +"_damage-"+keyword+"-x2) [4x](~"+values.character_id+"|repeating_spells_" + index +"_damage-"+keyword+"-x4)";
+					setAttrs({
+						repeating_spells_buttons_damage: damage,
+						repeating_spells_button_pay_cost: pay,
+						repeating_spells_row_index: index
+					});
+				} else {
+					setAttrs({
+						repeating_spells_button_pay_cost: pay,
+						repeating_spells_row_index: index
+					});
+				}
+			});
 		});
+		
 	
 	</script>
     <!--Roll Templates  -->
@@ -2187,6 +2260,7 @@
 			{{/rollTotal() additionalStatusEffect 1}}
 			{{#desc}}<div class="sheet-desc">{{desc}}</div>{{/desc}}
 			</div>
+			{{#payButton}}<div class="sheet-buttons">{{payButton}}</div>{{/payButton}}
 			{{#buttons}}<div class="sheet-buttons">{{buttons}}</div>{{/buttons}}
 		</div>
 	</rolltemplate>
@@ -2293,6 +2367,7 @@
 					<div class="sheet-value">{{lifesteal-amount}}</div>
 			    {{/rollTotal() lifesteal 1}}
 			</div>
+			{{#buttons}}<div class="sheet-buttons">{{buttons}}</div>{{/buttons}}
 	    </div>
 	</rolltemplate>
 </div>
