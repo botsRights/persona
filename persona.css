@@ -21,6 +21,7 @@
 
 .sheet-journalBlock{
 	width:95%;
+	height:-webkit-fill-available;
 }
 
 .ui-dialog .charsheet .sheet-3colrow .sheet-col {
@@ -60,7 +61,7 @@ input[type="number"].sheet-long_number  {
 .sheet-gun-spell,
 .sheet-healing-spell,
 .sheet-passive-spell,
-.sheet-physical-spell,
+.sheet-melee-spell,
 .sheet-status-spell{
 	display: none;
 }
@@ -72,7 +73,7 @@ input[type="number"].sheet-long_number  {
 .sheet-spellType[value="gun"] ~ div.sheet-gun-spell,
 .sheet-spellType[value="healing"] ~ div.sheet-healing-spell,
 .sheet-spellType[value="passive"] ~ div.sheet-passive-spell,
-.sheet-spellType[value="physical"] ~ div.sheet-physical-spell,
+.sheet-spellType[value="melee"] ~ div.sheet-melee-spell,
 .sheet-spellType[value="status"] ~ div.sheet-status-spell{
 	display: block;
 }
@@ -114,7 +115,15 @@ input.sheet-show-spell-lifesteal:not(:checked) ~ div.sheet-lifesteal-spell {
   display: inline-block;
 }
 
+.sheet-pay-costs-multiple,
+.sheet-multitargetToggle:checked ~ .sheet-pay-costs-single {
+  display: none;
+}
 
+.sheet-pay-costs-single,
+.sheet-multitargetToggle:checked ~ .sheet-pay-costs-multiple {
+  display: inline-block;
+}
 
 
 /* ------- Buttons ---------- */
@@ -172,7 +181,7 @@ button[type="action"].sheet-txt-btn:hover{
 .sheet-gun-spell,
 .sheet-healing-spell,
 .sheet-passive-spell,
-.sheet-physical-spell,
+.sheet-melee-spell,
 .sheet-status-spell,
 .sheet-lifesteal-spell,
 .sheet-spell-cost-info,
@@ -838,6 +847,11 @@ button[type=roll].sheet-d6-dice::before {
   text-align: center;
   background: #ff3300;
 }
+
+.sheet-rolltemplate-percentage-roll .sheet-buttons {
+  background: white;
+  text-align: center;
+}
 /*end of the percentage-roll rollTemplate section*/
 
 
@@ -919,6 +933,11 @@ button[type=roll].sheet-d6-dice::before {
 .sheet-rolltemplate-healing .sheet-content .sheet-total-pink {
   background: #ffccf2;
 }
+.sheet-rolltemplate-healing .sheet-buttons {
+  background: white;
+  text-align: center;
+}
+
 
 
 /*end of the healing rollTemplate section*/
